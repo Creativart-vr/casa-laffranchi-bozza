@@ -80,9 +80,14 @@ function ContattiPage() {
                   Orari
                 </dt>
                 <dd className="mt-2 text-lg text-foreground">
-                  Lunedì – Sabato, 9.00 – 18.00
-                  <br />
-                  <span className="font-serif italic text-muted-foreground">Visite su appuntamento</span>
+                  {site.orari.map((o) => (
+                    <span key={o} className="block">
+                      {o}
+                    </span>
+                  ))}
+                  <span className="mt-2 block font-serif italic text-muted-foreground">
+                    Visite e degustazioni su appuntamento
+                  </span>
                 </dd>
               </div>
             </dl>
