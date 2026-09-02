@@ -162,7 +162,13 @@ function ContattiPage() {
       </section>
 
       <section className="border-t border-line">
-        <Photo label="Mappa — Via Giovanni Bettoni 42, Castenedolo" ratio="21/9" tone="ivory" zoom={false} />
+        <Photo
+          label="La strada che sale ai vigneti di Castenedolo"
+          ratio="21/9"
+          tone="ivory"
+          zoom={false}
+          src={media.stradaCollina}
+        />
       </section>
     </>
   );
