@@ -5,6 +5,7 @@ import { ActionButton, SectionTitle } from "@/components/Ui";
 import { PageHero } from "@/components/PageHero";
 import { Photo } from "@/components/Photo";
 import { site } from "@/data/site";
+import { media } from "@/data/media";
 
 export const Route = createFileRoute("/contatti")({
   head: () => ({
@@ -80,9 +81,14 @@ function ContattiPage() {
                   Orari
                 </dt>
                 <dd className="mt-2 text-lg text-foreground">
-                  Lunedì – Sabato, 9.00 – 18.00
-                  <br />
-                  <span className="font-serif italic text-muted-foreground">Visite su appuntamento</span>
+                  {site.orari.map((o) => (
+                    <span key={o} className="block">
+                      {o}
+                    </span>
+                  ))}
+                  <span className="mt-2 block font-serif italic text-muted-foreground">
+                    Visite e degustazioni su appuntamento
+                  </span>
                 </dd>
               </div>
             </dl>
@@ -157,7 +163,13 @@ function ContattiPage() {
       </section>
 
       <section className="border-t border-line">
-        <Photo label="Mappa — Via Giovanni Bettoni 42, Castenedolo" ratio="21/9" tone="ivory" zoom={false} />
+        <Photo
+          label="La strada che sale ai vigneti di Castenedolo"
+          ratio="21/9"
+          tone="ivory"
+          zoom={false}
+          src={media.stradaCollina}
+        />
       </section>
     </>
   );

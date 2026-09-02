@@ -6,6 +6,7 @@ import { useCart } from "@/lib/cart";
 import { SearchOverlay } from "./SearchOverlay";
 import { MobileMenu } from "./MobileMenu";
 import { cn } from "@/lib/utils";
+import logoUfficiale from "@/assets/logo-ufficiale.jpg.asset.json";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -69,17 +70,15 @@ export function Header() {
             </div>
 
             <Link to="/" className="shrink-0 text-center" aria-label={`${site.brand} — home`}>
-              <span
+              <img
+                src={logoUfficiale.url}
+                alt="Casa Laffranchi"
                 className={cn(
-                  "block font-display uppercase leading-none tracking-[0.22em] text-green transition-all duration-500",
-                  scrolled ? "text-lg sm:text-xl" : "text-xl sm:text-2xl",
+                  "mx-auto w-auto object-contain transition-all duration-500",
+                  scrolled ? "h-11" : "h-14 sm:h-16",
                 )}
-              >
-                Casa Laffranchi
-              </span>
-              <span className="mt-1 block font-serif text-[0.7rem] italic tracking-wide text-muted-foreground">
-                Castenedolo · dal 1958
-              </span>
+              />
+              <span className="sr-only">{site.brand}</span>
             </Link>
 
             <div className="flex flex-1 items-center justify-end gap-6">

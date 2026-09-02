@@ -65,7 +65,13 @@ function VinoPage() {
 
           <div className="mt-12 grid gap-14 lg:grid-cols-2 lg:gap-24">
             <Reveal>
-              <Photo label={`Foto bottiglia ${product.nome}`} ratio="4/5" tone="ivory" />
+              <Photo
+                label={`Bottiglia ${product.nome} — Casa Laffranchi`}
+                ratio="4/5"
+                tone="ivory"
+                src={product.immagine}
+                fit="contain"
+              />
             </Reveal>
             <Reveal delay={100} className="flex flex-col justify-center">
               <p className="eyebrow">{product.tipologia}</p>

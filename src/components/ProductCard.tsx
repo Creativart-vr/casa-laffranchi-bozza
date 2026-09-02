@@ -9,7 +9,13 @@ export function ProductCard({ product, showAdd = true }: { product: Product; sho
   return (
     <article className="group flex h-full flex-col">
       <Link to="/vini/$slug" params={{ slug: product.slug }} className="block" tabIndex={-1} aria-hidden="true">
-        <Photo label={`Foto bottiglia ${product.nome}`} ratio="3/4" tone="cream" />
+        <Photo
+          label={`Bottiglia ${product.nome} — Casa Laffranchi`}
+          ratio="3/4"
+          tone="cream"
+          src={product.immagine}
+          fit="contain"
+        />
       </Link>
       <div className="mt-6 flex flex-1 flex-col text-center">
         <p className="font-display text-[0.62rem] uppercase tracking-[0.32em] text-muted-foreground">

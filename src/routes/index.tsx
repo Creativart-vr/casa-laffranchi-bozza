@@ -4,22 +4,25 @@ import { Reveal } from "@/components/Reveal";
 import { ButtonLink, SectionTitle } from "@/components/Ui";
 import { ProductCard } from "@/components/ProductCard";
 import { products } from "@/data/products";
-import { site, trustPoints } from "@/data/site";
+import { citazioni, site, trustPoints, valori } from "@/data/site";
+import { media } from "@/data/media";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Casa Laffranchi — Vini dei Colli di Castenedolo" },
+      { title: "Casa Laffranchi — Vino pregiato dei colli di Castenedolo" },
       {
         name: "description",
         content:
-          "Azienda vitivinicola familiare a Castenedolo: Valens, Andreas, Burtulì, Rocolet e San Bartolomeo. Acquista online i vini dei colli bresciani.",
+          "Azienda Agricola Contrini Pasquina, Castenedolo (BS): Valens, Caelestis, Andreas, Burtulì, Rocolet, San Bartolomeo. Vini a conduzione familiare, acquistabili online.",
       },
-      { property: "og:title", content: "Casa Laffranchi — Vini dei Colli di Castenedolo" },
+      { property: "og:title", content: "Casa Laffranchi — Vino pregiato dei colli di Castenedolo" },
       {
         property: "og:description",
-        content: "Vino pregiato dei Colli di Castenedolo. Una famiglia, una collina, poche bottiglie fatte bene.",
+        content: "Una storia di famiglia, raccontata in ogni bottiglia. Vini dei colli di Castenedolo.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { property: "og:url", content: "/" },
     ],
     links: [{ rel: "canonical", href: "/" }],
@@ -29,7 +32,7 @@ export const Route = createFileRoute("/")({
 
 function Home() {
   const selezione = products.filter((p) =>
-    ["valens", "andreas", "burtuli", "san-bartolomeo"].includes(p.slug),
+    ["valens", "caelestis", "andreas", "burtuli"].includes(p.slug),
   );
 
   return (
@@ -38,16 +41,32 @@ function Home() {
       <section className="relative">
         <div className="container-editorial pt-10 lg:pt-16">
           <div className="relative">
-            <Photo label="Foto vigneto — colli di Castenedolo" ratio="16/9" tone="ivory" zoom={false} labelPosition="bottom" className="hidden md:block" />
-            <Photo label="Foto vigneto" ratio="4/5" tone="ivory" zoom={false} labelPosition="bottom" className="md:hidden" />
+            <Photo
+              label="Vigneto Casa Laffranchi sui colli di Castenedolo"
+              ratio="16/9"
+              tone="ivory"
+              zoom={false}
+              src={media.heroVigneto}
+              position="center 40%"
+              className="hidden md:block"
+            />
+            <Photo
+              label="Vigneto Casa Laffranchi"
+              ratio="4/5"
+              tone="ivory"
+              zoom={false}
+              src={media.heroVigneto}
+              className="md:hidden"
+            />
+            <div className="pointer-events-none absolute inset-0 bg-green/45" aria-hidden="true" />
             <div className="pointer-events-none absolute inset-0 flex items-center justify-center px-6">
               <div className="max-w-3xl text-center">
                 <Reveal>
-                  <p className="eyebrow">Dal 1958, a Castenedolo</p>
-                  <h1 className="mt-5 text-[2.4rem] leading-[1.02] sm:text-[3.6rem] lg:text-[5rem]">
+                  <p className="eyebrow text-white/80">Castenedolo (BS)</p>
+                  <h1 className="mt-5 text-[2.4rem] leading-[1.02] text-white sm:text-[3.6rem] lg:text-[5rem]">
                     Vino pregiato
                     <br />
-                    dei Colli di Castenedolo
+                    dei colli di Castenedolo
                   </h1>
                 </Reveal>
               </div>
@@ -59,6 +78,14 @@ function Home() {
               Acquista online
             </ButtonLink>
           </Reveal>
+          <Reveal delay={180}>
+            <p className="mx-auto mt-14 max-w-2xl text-center font-serif text-xl italic leading-relaxed text-muted-foreground">
+              “{citazioni.galilei.testo}”
+              <span className="mt-3 block font-display text-[0.62rem] uppercase not-italic tracking-[0.3em]">
+                — {citazioni.galilei.autore}
+              </span>
+            </p>
+          </Reveal>
         </div>
       </section>
 
@@ -66,7 +93,12 @@ function Home() {
       <section className="section-y">
         <div className="container-editorial grid items-center gap-14 lg:grid-cols-2 lg:gap-24">
           <Reveal>
-            <Photo label="Foto famiglia in cantina" ratio="4/5" tone="cream" />
+            <Photo
+              label="La casa e i filari di Casa Laffranchi a Castenedolo"
+              ratio="4/5"
+              tone="cream"
+              src={media.casaAerea}
+            />
           </Reveal>
           <Reveal delay={100}>
             <SectionTitle
@@ -75,12 +107,13 @@ function Home() {
               subtitle="Casa Laffranchi"
             />
             <p className="mt-8 max-w-xl text-lg leading-relaxed text-muted-foreground">
-              Coltiviamo poche pertiche sui colli morenici di Castenedolo, dove il terreno ghiaioso e la
-              brezza del lago disegnano vini sapidi e sinceri. Ogni vendemmia è raccolta a mano dalla
-              famiglia e vinificata in azienda, senza fretta.
+              L'Azienda Agricola Contrini Pasquina nasce a Castenedolo, nel cuore del bresciano. Una
+              conduzione interamente famigliare che cura la vigna e la cantina con le proprie mani, in ogni
+              fase — senza intermediari e senza compromessi.
             </p>
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted-foreground">
-              Non cerchiamo grandi numeri: cerchiamo bottiglie che raccontino esattamente da dove vengono.
+              Su terreni argillosi morenici coltiviamo vigne esposte al sole del mattino, che danno vita a
+              vini di carattere autentico: espressione vera del territorio dei colli di Castenedolo.
             </p>
             <div className="mt-10">
               <ButtonLink to="/casa-laffranchi">La nostra storia</ButtonLink>
@@ -89,17 +122,16 @@ function Home() {
         </div>
       </section>
 
-      {/* CIFRE */}
+      {/* VALORI */}
       <section className="border-y border-line bg-cream">
         <div className="container-editorial grid divide-line py-16 sm:grid-cols-3 sm:divide-x">
-          {[
-            { n: "1958", l: "Prima vendemmia di famiglia" },
-            { n: "9", l: "Etichette in produzione" },
-            { n: "100%", l: "Vinificazione in azienda" },
-          ].map((s, i) => (
-            <Reveal key={s.n} delay={i * 90} className="px-6 py-8 text-center sm:py-4">
-              <p className="font-display text-[3rem] leading-none text-green">{s.n}</p>
-              <p className="mt-4 font-serif text-lg italic text-muted-foreground">{s.l}</p>
+          {valori.map((v, i) => (
+            <Reveal key={v.title} delay={i * 90} className="px-6 py-8 text-center sm:py-4">
+              <p className="font-display text-[0.62rem] uppercase tracking-[0.3em] text-muted-foreground">
+                Il nostro valore
+              </p>
+              <h2 className="mt-5 text-[1.35rem] text-green">{v.title}</h2>
+              <p className="mt-4 text-base leading-relaxed text-muted-foreground">{v.text}</p>
             </Reveal>
           ))}
         </div>
@@ -109,7 +141,7 @@ function Home() {
       <section className="section-y">
         <div className="container-editorial">
           <Reveal>
-            <SectionTitle title="La selezione" subtitle="Le nostre etichette" />
+            <SectionTitle title="Le nostre etichette" subtitle="La selezione" />
           </Reveal>
           <div className="mt-16 grid gap-x-10 gap-y-16 sm:grid-cols-2 lg:grid-cols-4">
             {selezione.map((p, i) => (
@@ -134,11 +166,11 @@ function Home() {
             <h2 className="mt-5 text-[2.2rem] text-white sm:text-[3rem]">
               Il tempo è
               <br />
-              il nostro unico additivo
+              il nostro ingrediente segreto
             </h2>
             <p className="mt-8 max-w-xl text-lg leading-relaxed text-white/75">
-              Potatura corta, rese basse, raccolta manuale in cassetta. In cantina lavoriamo con
-              fermentazioni lente e lunghi affinamenti, perché il vino trovi da sé il proprio equilibrio.
+              Barrique di rovere per i rossi, inox per il rosato, metodo classico per gli spumanti.
+              Aspettiamo che ogni vino trovi la propria voce, la propria identità.
             </p>
             <div className="mt-10">
               <ButtonLink to="/vigna-cantina" variant="onDark">
@@ -147,7 +179,12 @@ function Home() {
             </div>
           </Reveal>
           <Reveal delay={100}>
-            <Photo label="Foto filari all'alba" ratio="4/3" tone="green" />
+            <Photo
+              label="Barrique di rovere nella cantina di Casa Laffranchi"
+              ratio="4/3"
+              tone="green"
+              src={media.barrique}
+            />
           </Reveal>
         </div>
       </section>
@@ -156,8 +193,12 @@ function Home() {
       <section className="section-y">
         <div className="container-editorial">
           <Reveal>
-            <SectionTitle title="Acquista online" subtitle="Direttamente dalla cantina" />
+            <SectionTitle title="Shop online" subtitle="Acquisto diretto" />
           </Reveal>
+          <p className="mx-auto mt-8 max-w-2xl text-center text-lg leading-relaxed text-muted-foreground">
+            Ordina i nostri vini direttamente dal sito — consegna in tutta Italia. Bottiglie singole o
+            confezioni regalo.
+          </p>
           <div className="mt-16 grid gap-px border border-line bg-line sm:grid-cols-3">
             {trustPoints.map((t, i) => (
               <Reveal key={t.title} delay={i * 90} className="bg-background px-8 py-12 text-center">
@@ -180,13 +221,13 @@ function Home() {
           <Reveal>
             <p className="eyebrow">Vieni a trovarci</p>
             <h2 className="mx-auto mt-5 max-w-3xl text-[2rem] sm:text-[2.8rem]">
-              Degustazioni in cantina su appuntamento
+              Siamo a Castenedolo, in provincia di Brescia
             </h2>
             <p className="mx-auto mt-8 max-w-xl font-serif text-xl italic text-muted-foreground">
               {site.address.street} — {site.address.city}
             </p>
             <div className="mt-10 flex justify-center">
-              <ButtonLink to="/contatti">Prenota una visita</ButtonLink>
+              <ButtonLink to="/contatti">Contattaci</ButtonLink>
             </div>
             <p className="mt-10 font-display text-[0.62rem] uppercase tracking-[0.3em] text-muted-foreground">
               oppure scrivici a{" "}

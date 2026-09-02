@@ -1,3 +1,5 @@
+import { bottleImages } from "./media";
+
 export type Category =
   | "Bianco"
   | "Rosato"
@@ -30,9 +32,11 @@ export type Product = {
   varianti?: string[];
   servizio?: string;
   occasione?: string;
+  /** Fotografia bottiglia dal brief ufficiale */
+  immagine?: string;
 };
 
-export const products: Product[] = [
+const catalogo: Product[] = [
   {
     slug: "valens",
     nome: "Valens",
@@ -181,6 +185,14 @@ export const products: Product[] = [
     descrizioneBreve: "Bianca, Mirtillo, Caffè.",
   },
 ];
+
+/** Fonte dati unica: catalogo + fotografie bottiglia del brief. */
+export const products: Product[] = catalogo.map((p) => {
+  const img = bottleImages[p.slug];
+  return img ? { ...p, immagine: img } : p;
+});
+
+
 
 export const categories: (Category | "Tutti")[] = [
   "Tutti",

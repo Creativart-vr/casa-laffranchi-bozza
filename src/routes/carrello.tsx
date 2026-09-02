@@ -49,7 +49,14 @@ function CarrelloPage() {
                 <ul className="border-t border-line">
                   {items.map(({ product, qty }) => (
                     <li key={product.slug} className="grid grid-cols-[80px_1fr] gap-6 border-b border-line py-8 sm:grid-cols-[110px_1fr]">
-                      <Photo label="Foto" ratio="3/4" tone="cream" zoom={false} />
+                      <Photo
+                        label={`Bottiglia ${product.nome}`}
+                        ratio="3/4"
+                        tone="cream"
+                        zoom={false}
+                        src={product.immagine}
+                        fit="contain"
+                      />
                       <div className="flex flex-col justify-between gap-5">
                         <div className="flex flex-wrap items-start justify-between gap-4">
                           <div>

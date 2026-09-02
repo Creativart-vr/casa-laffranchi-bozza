@@ -3,21 +3,25 @@ import { Photo } from "@/components/Photo";
 import { Reveal } from "@/components/Reveal";
 import { ButtonLink, SectionTitle } from "@/components/Ui";
 import { PageHero } from "@/components/PageHero";
+import { citazioni, site, valori } from "@/data/site";
+import { media } from "@/data/media";
 
 export const Route = createFileRoute("/casa-laffranchi")({
   head: () => ({
     meta: [
-      { title: "Casa Laffranchi — La storia della famiglia" },
+      { title: "Casa Laffranchi — La nostra storia di famiglia" },
       {
         name: "description",
         content:
-          "Tre generazioni sui colli di Castenedolo: la storia, i valori e le persone di Casa Laffranchi, azienda vitivinicola familiare bresciana.",
+          "Azienda Agricola Contrini Pasquina, Castenedolo (BS): conduzione interamente famigliare, terreni argillosi morenici e vigne esposte al sole del mattino.",
       },
-      { property: "og:title", content: "Casa Laffranchi — La storia della famiglia" },
+      { property: "og:title", content: "Casa Laffranchi — La nostra storia di famiglia" },
       {
         property: "og:description",
-        content: "Tre generazioni sui colli di Castenedolo, tra vigna, cantina e tavola.",
+        content: "Una storia di famiglia, raccontata in ogni bottiglia. Castenedolo, nel cuore del bresciano.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { property: "og:url", content: "/casa-laffranchi" },
     ],
     links: [{ rel: "canonical", href: "/casa-laffranchi" }],
@@ -25,38 +29,40 @@ export const Route = createFileRoute("/casa-laffranchi")({
   component: CasaPage,
 });
 
-const tappe = [
-  { anno: "1958", titolo: "Le prime viti", testo: "La famiglia impianta i primi filari sui terrazzamenti morenici di Castenedolo." },
-  { anno: "1979", titolo: "La cantina", testo: "Nasce la cantina di famiglia: la vinificazione entra definitivamente in azienda." },
-  { anno: "2004", titolo: "Le etichette", testo: "Prendono forma i vini che ancora oggi ci rappresentano: Burtulì, Rocolet, Valens." },
-  { anno: "Oggi", titolo: "La terza generazione", testo: "Stessa collina, stessa cura: poche bottiglie, tutte seguite a mano." },
-];
-
 function CasaPage() {
   return (
     <>
       <PageHero
         eyebrow="Chi siamo"
-        title={<>Casa Laffranchi</>}
-        intro="Una famiglia, una collina, un modo di fare vino che non ha mai avuto fretta."
+        title={<>La nostra storia</>}
+        intro="Una storia di famiglia, raccontata in ogni bottiglia."
       />
 
       <section className="section-y">
         <div className="container-editorial grid items-center gap-14 lg:grid-cols-2 lg:gap-24">
           <Reveal>
-            <SectionTitle align="left" title={<>Radici<br />in collina</>} subtitle="Castenedolo" />
+            <SectionTitle
+              align="left"
+              title={<>Nel cuore<br />del bresciano</>}
+              subtitle="Azienda Agricola Contrini Pasquina"
+            />
             <p className="mt-8 text-lg leading-relaxed text-muted-foreground">
-              Castenedolo sorge su un rilievo isolato nella pianura bresciana: sabbie, ghiaie e fossili
-              marini che regalano ai vini una mineralità inconfondibile. È qui che la nostra famiglia
-              coltiva le proprie vigne da tre generazioni.
+              L'Azienda Agricola Contrini Pasquina nasce a Castenedolo, nel cuore del bresciano. Una
+              conduzione interamente famigliare che cura la vigna e la cantina con le proprie mani, in ogni
+              fase — senza intermediari e senza compromessi.
             </p>
             <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-              L'azienda agricola Contrini Pasquina custodisce oggi lo stesso gesto di allora: potare,
-              attendere, raccogliere. Il resto lo fa la collina.
+              Su terreni argillosi morenici coltiviamo vigne esposte al sole del mattino, che danno vita a
+              vini di carattere autentico: espressione vera del territorio dei colli di Castenedolo.
             </p>
           </Reveal>
           <Reveal delay={100}>
-            <Photo label="Foto ritratto di famiglia" ratio="4/5" tone="cream" />
+            <Photo
+              label="La casa e la collina di Casa Laffranchi a Castenedolo"
+              ratio="4/5"
+              tone="cream"
+              src={media.casaCollina}
+            />
           </Reveal>
         </div>
       </section>
@@ -64,14 +70,16 @@ function CasaPage() {
       <section className="border-y border-line bg-cream section-y">
         <div className="container-editorial">
           <Reveal>
-            <SectionTitle title="Le nostre tappe" subtitle="Una linea del tempo" />
+            <SectionTitle title="I nostri valori" subtitle="Come lavoriamo" />
           </Reveal>
-          <div className="mt-16 grid gap-px bg-line sm:grid-cols-2 lg:grid-cols-4">
-            {tappe.map((t, i) => (
-              <Reveal key={t.anno} delay={i * 80} className="bg-cream px-8 py-12">
-                <p className="font-display text-[2.4rem] leading-none text-green">{t.anno}</p>
-                <h3 className="mt-6 text-[1.1rem]">{t.titolo}</h3>
-                <p className="mt-3 text-base leading-relaxed text-muted-foreground">{t.testo}</p>
+          <div className="mt-16 grid gap-px bg-line sm:grid-cols-3">
+            {valori.map((v, i) => (
+              <Reveal key={v.title} delay={i * 80} className="bg-cream px-8 py-12">
+                <p className="font-display text-[0.62rem] uppercase tracking-[0.32em] text-muted-foreground">
+                  Il nostro valore — {["uno", "due", "tre"][i]}
+                </p>
+                <h3 className="mt-6 text-[1.3rem]">{v.title}</h3>
+                <p className="mt-3 text-base leading-relaxed text-muted-foreground">{v.text}</p>
               </Reveal>
             ))}
           </div>
@@ -81,23 +89,25 @@ function CasaPage() {
       <section className="section-y">
         <div className="container-editorial grid items-center gap-14 lg:grid-cols-2 lg:gap-24">
           <Reveal>
-            <Photo label="Foto mani e grappoli" ratio="1/1" tone="ivory" />
+            <Photo
+              label="Grappoli raccolti a mano durante la vendemmia"
+              ratio="1/1"
+              tone="ivory"
+              src={media.uvaMano}
+            />
           </Reveal>
           <Reveal delay={100}>
-            <SectionTitle align="left" title={<>Il nostro<br />modo di fare vino</>} subtitle="Valori" />
-            <ul className="mt-10 divide-y divide-line border-y border-line">
-              {[
-                ["Rese basse", "Poche uve per pianta, per avere concentrazione senza pesantezza."],
-                ["Raccolta a mano", "Vendemmia in cassetta, selezione grappolo per grappolo."],
-                ["Tempo", "Affinamenti lunghi, nessuna scorciatoia tecnologica."],
-                ["Territorio", "Solo uve delle nostre vigne di Castenedolo."],
-              ].map(([t, d]) => (
-                <li key={t} className="py-6">
-                  <p className="font-display text-[0.95rem] uppercase tracking-[0.22em] text-green">{t}</p>
-                  <p className="mt-2 text-base leading-relaxed text-muted-foreground">{d}</p>
-                </li>
-              ))}
-            </ul>
+            <SectionTitle align="left" title={<>Il nostro<br />modo di fare vino</>} subtitle="In vigna e in cantina" />
+            <p className="mt-8 text-lg leading-relaxed text-muted-foreground">
+              Si raccoglie grappolo per grappolo, a mano, con la stessa attenzione di sempre. Per i rossi si
+              aspetta oltre metà ottobre: la pazienza è il primo ingrediente.
+            </p>
+            <p className="mt-5 font-serif text-2xl italic leading-relaxed text-muted-foreground">
+              “{citazioni.terra.testo}”
+            </p>
+            <p className="mt-3 font-display text-[0.62rem] uppercase tracking-[0.3em] text-muted-foreground">
+              — {citazioni.terra.autore}
+            </p>
             <div className="mt-10">
               <ButtonLink to="/vigna-cantina">Vigna &amp; Cantina</ButtonLink>
             </div>
@@ -112,6 +122,9 @@ function CasaPage() {
             <h2 className="mx-auto mt-5 max-w-3xl text-[2rem] text-white sm:text-[2.8rem]">
               Il vino si capisce davvero solo dove nasce
             </h2>
+            <p className="mt-8 font-serif text-xl italic text-white/70">
+              {site.address.street} — {site.address.city}
+            </p>
             <div className="mt-10 flex justify-center">
               <ButtonLink to="/contatti" variant="onDark">
                 Vieni a trovarci

@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { navigation, site } from "@/data/site";
 import { products } from "@/data/products";
+import logoUfficiale from "@/assets/logo-ufficiale.jpg.asset.json";
 
 export function Footer() {
   return (
@@ -8,7 +9,11 @@ export function Footer() {
       <div className="container-editorial py-20 lg:py-24">
         <div className="grid gap-14 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
           <div>
-            <p className="font-display text-2xl uppercase tracking-[0.2em] text-green">Casa Laffranchi</p>
+            <img
+              src={logoUfficiale.url}
+              alt="Casa Laffranchi"
+              className="h-20 w-auto object-contain object-left"
+            />
             <p className="mt-4 max-w-sm font-serif text-xl italic leading-relaxed text-muted-foreground">
               {site.payoff}. Una famiglia, una collina, poche bottiglie fatte bene.
             </p>
