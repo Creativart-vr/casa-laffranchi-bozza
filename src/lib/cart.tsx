@@ -39,7 +39,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
       /* ignore */
 
     }
-  }, [lines]);
+  }, [lines, hydrated]);
 
   const add = useCallback((slug: string, qty = 1) => {
     setLines((prev) => {
