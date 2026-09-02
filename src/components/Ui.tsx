@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import type { ComponentProps, ReactNode } from "react";
+import type { ReactElement, ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
 const base =
@@ -38,10 +38,9 @@ export function ButtonLink({
   className?: string;
   params?: Record<string, string>;
 }) {
-  const LinkAny = Link as unknown as (props: Record<string, unknown>) => JSX.Element;
+  const LinkAny = Link as unknown as (props: Record<string, unknown>) => ReactElement;
   return (
     <LinkAny to={to} className={cn(base, variants[variant], className)} {...rest}>
-
       <Corners variant={variant} />
       {children}
     </LinkAny>
