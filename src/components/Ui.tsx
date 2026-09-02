@@ -31,12 +31,17 @@ export function ButtonLink({
   variant = "green",
   className,
   ...rest
-}: { to: string; children: ReactNode; variant?: Variant; className?: string } & Omit<
-  ComponentProps<typeof Link>,
-  "to" | "children" | "className"
->) {
+}: {
+  to: string;
+  children: ReactNode;
+  variant?: Variant;
+  className?: string;
+  params?: Record<string, string>;
+}) {
+  const LinkAny = Link as unknown as (props: Record<string, unknown>) => JSX.Element;
   return (
-    <Link to={to} className={cn(base, variants[variant], className)} {...(rest as object)}>
+    <LinkAny to={to} className={cn(base, variants[variant], className)} {...rest}>
+
       <Corners variant={variant} />
       {children}
     </Link>
