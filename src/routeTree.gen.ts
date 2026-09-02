@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CasaLaffranchiRouteImport } from './routes/casa-laffranchi'
 import { Route as VignaCantinaRouteImport } from './routes/vigna-cantina'
+import { Route as ViniIndexRouteImport } from './routes/vini.index'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -28,35 +29,44 @@ const VignaCantinaRoute = VignaCantinaRouteImport.update({
   path: '/vigna-cantina',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ViniIndexRoute = ViniIndexRouteImport.update({
+  id: '/vini/',
+  path: '/vini/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/casa-laffranchi': typeof CasaLaffranchiRoute
   '/vigna-cantina': typeof VignaCantinaRoute
+  '/vini/': typeof ViniIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/casa-laffranchi': typeof CasaLaffranchiRoute
   '/vigna-cantina': typeof VignaCantinaRoute
+  '/vini': typeof ViniIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/casa-laffranchi': typeof CasaLaffranchiRoute
   '/vigna-cantina': typeof VignaCantinaRoute
+  '/vini/': typeof ViniIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/casa-laffranchi' | '/vigna-cantina'
+  fullPaths: '/' | '/casa-laffranchi' | '/vigna-cantina' | '/vini/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/casa-laffranchi' | '/vigna-cantina'
-  id: '__root__' | '/' | '/casa-laffranchi' | '/vigna-cantina'
+  to: '/' | '/casa-laffranchi' | '/vigna-cantina' | '/vini'
+  id: '__root__' | '/' | '/casa-laffranchi' | '/vigna-cantina' | '/vini/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CasaLaffranchiRoute: typeof CasaLaffranchiRoute
   VignaCantinaRoute: typeof VignaCantinaRoute
+  ViniIndexRoute: typeof ViniIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -82,6 +92,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof VignaCantinaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/vini/': {
+      id: '/vini/'
+      path: '/vini'
+      fullPath: '/vini/'
+      preLoaderRoute: typeof ViniIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -89,6 +106,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CasaLaffranchiRoute: CasaLaffranchiRoute,
   VignaCantinaRoute: VignaCantinaRoute,
+  ViniIndexRoute: ViniIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
