@@ -5,6 +5,7 @@ import { ActionButton, SectionTitle } from "@/components/Ui";
 import { PageHero } from "@/components/PageHero";
 import { Photo } from "@/components/Photo";
 import { site } from "@/data/site";
+import { media } from "@/data/media";
 
 export const Route = createFileRoute("/contatti")({
   head: () => ({
