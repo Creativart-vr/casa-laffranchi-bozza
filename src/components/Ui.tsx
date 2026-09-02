@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import type { ReactElement, ReactNode } from "react";
+import type { ComponentProps, ReactElement, ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
 const base =
