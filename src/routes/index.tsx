@@ -58,11 +58,12 @@ function Home() {
               src={media.heroVigneto}
               className="md:hidden"
             />
+            <div className="pointer-events-none absolute inset-0 bg-green/45" aria-hidden="true" />
             <div className="pointer-events-none absolute inset-0 flex items-center justify-center px-6">
               <div className="max-w-3xl text-center">
                 <Reveal>
-                  <p className="eyebrow">Castenedolo (BS)</p>
-                  <h1 className="mt-5 text-[2.4rem] leading-[1.02] sm:text-[3.6rem] lg:text-[5rem]">
+                  <p className="eyebrow text-white/80">Castenedolo (BS)</p>
+                  <h1 className="mt-5 text-[2.4rem] leading-[1.02] text-white sm:text-[3.6rem] lg:text-[5rem]">
                     Vino pregiato
                     <br />
                     dei colli di Castenedolo
