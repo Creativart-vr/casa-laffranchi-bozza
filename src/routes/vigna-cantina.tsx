@@ -3,21 +3,25 @@ import { Photo } from "@/components/Photo";
 import { Reveal } from "@/components/Reveal";
 import { ButtonLink, SectionTitle } from "@/components/Ui";
 import { PageHero } from "@/components/PageHero";
+import { citazioni } from "@/data/site";
+import { media } from "@/data/media";
 
 export const Route = createFileRoute("/vigna-cantina")({
   head: () => ({
     meta: [
-      { title: "Vigna & Cantina — Casa Laffranchi" },
+      { title: "Vigna & Cantina — Il processo | Casa Laffranchi" },
       {
         name: "description",
         content:
-          "Terreno morenico, rese basse, vendemmia manuale e affinamenti lenti: il metodo di vigna e cantina di Casa Laffranchi a Castenedolo.",
+          "Il vigneto, la vendemmia manuale, la vinificazione con pressatura soffice e l'affinamento in barrique: il processo di Casa Laffranchi a Castenedolo.",
       },
       { property: "og:title", content: "Vigna & Cantina — Casa Laffranchi" },
       {
         property: "og:description",
-        content: "Il metodo di lavoro tra i filari e in cantina, dalla potatura all'affinamento.",
+        content: "Il tempo è il nostro ingrediente segreto: dal filare alla bottiglia.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { property: "og:url", content: "/vigna-cantina" },
     ],
     links: [{ rel: "canonical", href: "/vigna-cantina" }],
@@ -26,39 +30,53 @@ export const Route = createFileRoute("/vigna-cantina")({
 });
 
 const fasi = [
-  ["01", "Potatura", "Potatura corta invernale per contenere la produzione e concentrare i grappoli."],
-  ["02", "Gestione verde", "Sfogliatura e diradamento manuale: luce e aria arrivano fino al grappolo."],
-  ["03", "Vendemmia", "Raccolta a mano in cassetta, scaglionata secondo la maturazione di ogni parcella."],
-  ["04", "Vinificazione", "Fermentazioni lente e macerazioni calibrate sul carattere di ogni vitigno."],
-  ["05", "Affinamento", "Acciaio, legno e bottiglia: il tempo necessario, mai quello comodo."],
-  ["06", "Imbottigliamento", "Poche migliaia di bottiglie all'anno, tutte seguite in azienda."],
-];
+  [
+    "I",
+    "Il vigneto",
+    "Radici che affondano in terre argillose moreniche, esposte al primo sole del mattino. Ogni filare racconta anni di cura, di mani che conoscono la vite come si conosce un vecchio amico fidato.",
+  ],
+  [
+    "II",
+    "La vendemmia",
+    "Il momento più atteso dell'anno. Si raccoglie grappolo per grappolo, a mano, con la stessa attenzione di sempre. Per i rossi si aspetta oltre metà ottobre: la pazienza è il primo ingrediente.",
+  ],
+  [
+    "III",
+    "La vinificazione",
+    "Pressatura soffice, temperature bassissime, separazione immediata delle bucce. Non interveniamo: accompagniamo. Ogni uva deve poter raccontare la propria storia, senza forzature e senza fretta.",
+  ],
+  [
+    "IV",
+    "L'affinamento",
+    "Il tempo è il nostro ingrediente segreto. Barrique di rovere per i rossi, inox per il rosato, metodo classico per gli spumanti. Aspettiamo che ogni vino trovi la propria voce.",
+  ],
+] as const;
 
 function VignaPage() {
   return (
     <>
       <PageHero
-        eyebrow="Il metodo"
+        eyebrow="Il processo"
         title={<>Vigna &amp; Cantina</>}
-        intro="Dal terreno morenico alla bottiglia: ogni passaggio è manuale, lento e verificato in azienda."
+        intro="Dal terreno argilloso morenico alla bottiglia: ogni passaggio è seguito a mano, in azienda."
       />
 
       <section className="section-y">
         <div className="container-editorial grid items-center gap-14 lg:grid-cols-2 lg:gap-24">
           <Reveal>
-            <SectionTitle align="left" title={<>Un terreno<br />che si sente nel calice</>} subtitle="La vigna" />
+            <SectionTitle align="left" title={<>Un terreno<br />che si sente nel calice</>} subtitle="Il vigneto" />
             <p className="mt-8 text-lg leading-relaxed text-muted-foreground">
-              I nostri filari crescono su suoli ghiaiosi e argillosi di origine morenica, ricchi di scheletro
-              e ben drenati. È un terreno severo, che costringe la vite a scendere in profondità: da lì
-              arrivano la sapidità e la mineralità che riconoscete in Valens e Andreas.
+              I nostri filari crescono su terre argillose moreniche, esposte al primo sole del mattino. Ogni
+              filare racconta anni di cura, di mani che conoscono la vite come si conosce un vecchio amico
+              fidato.
             </p>
             <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-              Le vigne più argillose, verso il piede della collina, danno invece struttura e frutto scuro:
-              sono la casa di Burtulì.
+              È da qui che nascono la mineralità di Valens e Andreas e la struttura piena di Burtulì e
+              Rocolet.
             </p>
           </Reveal>
           <Reveal delay={100}>
-            <Photo label="Foto terreno morenico" ratio="4/5" tone="cream" />
+            <Photo label="Filari del vigneto Casa Laffranchi" ratio="4/5" tone="cream" src={media.vignetoFilari} />
           </Reveal>
         </div>
       </section>
@@ -66,12 +84,12 @@ function VignaPage() {
       <section className="border-y border-line bg-cream section-y">
         <div className="container-editorial">
           <Reveal>
-            <SectionTitle title="Dalla vite alla bottiglia" subtitle="Sei gesti, ogni anno" />
+            <SectionTitle title="Dalla vite alla bottiglia" subtitle="Quattro tempi, ogni anno" />
           </Reveal>
-          <div className="mt-16 grid gap-px bg-line sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-16 grid gap-px bg-line sm:grid-cols-2 lg:grid-cols-4">
             {fasi.map(([n, t, d], i) => (
               <Reveal key={n} delay={i * 70} className="bg-cream px-8 py-12">
-                <p className="font-display text-[0.7rem] tracking-[0.4em] text-muted-foreground">{n}</p>
+                <p className="font-display text-[0.8rem] tracking-[0.4em] text-muted-foreground">{n}</p>
                 <h3 className="mt-6 text-[1.2rem]">{t}</h3>
                 <p className="mt-3 text-base leading-relaxed text-muted-foreground">{d}</p>
               </Reveal>
@@ -83,13 +101,23 @@ function VignaPage() {
       <section className="section-y">
         <div className="container-editorial grid gap-10 lg:grid-cols-3">
           <Reveal>
-            <Photo label="Foto botti in cantina" ratio="3/4" tone="ivory" />
+            <Photo label="Lavorazione tra i filari con il trattore" ratio="3/4" tone="ivory" src={media.trattoreVigna} />
           </Reveal>
           <Reveal delay={90}>
-            <Photo label="Foto vendemmia manuale" ratio="3/4" tone="cream" />
+            <Photo label="Vendemmia manuale a Casa Laffranchi" ratio="3/4" tone="cream" src={media.vendemmiaMano} />
           </Reveal>
           <Reveal delay={180}>
-            <Photo label="Foto affinamento in bottiglia" ratio="3/4" tone="ivory" />
+            <Photo label="Il vigneto in autunno" ratio="3/4" tone="ivory" src={media.vignetoAutunno} />
+          </Reveal>
+        </div>
+        <div className="container-editorial mt-16">
+          <Reveal>
+            <p className="mx-auto max-w-2xl text-center font-serif text-2xl italic leading-relaxed text-muted-foreground">
+              “{citazioni.terra.testo}”
+              <span className="mt-3 block font-display text-[0.62rem] uppercase not-italic tracking-[0.3em]">
+                — {citazioni.terra.autore}
+              </span>
+            </p>
           </Reveal>
         </div>
       </section>
@@ -104,8 +132,8 @@ function VignaPage() {
               rifermentazione in bottiglia
             </h2>
             <p className="mt-8 max-w-xl text-lg leading-relaxed text-white/75">
-              Da uve Cabernet Sauvignon vinificate in bianco nasce il nostro Extra Brut: presa di spuma in
-              bottiglia, lunga sosta sui lieviti, perlage fine e persistente.
+              Da uve Cabernet Sauvignon nasce il nostro Extra Brut metodo classico: presa di spuma in
+              bottiglia, perlage fine, gusto secco ed elegante.
             </p>
             <div className="mt-10">
               <ButtonLink to="/vini/$slug" params={{ slug: "andreas" }} variant="onDark">
@@ -114,7 +142,7 @@ function VignaPage() {
             </div>
           </Reveal>
           <Reveal delay={100}>
-            <Photo label="Foto pupitre e bottiglie" ratio="4/3" tone="green" />
+            <Photo label="Barrique di rovere in cantina" ratio="4/3" tone="green" src={media.barrique} />
           </Reveal>
         </div>
       </section>
