@@ -1,8 +1,8 @@
 import { cn } from "@/lib/utils";
 
 /**
- * Placeholder fotografico neutro ed elegante.
- * Sostituibile in seguito con le fotografie reali Casa Laffranchi.
+ * Fotografia editoriale Casa Laffranchi.
+ * Con `src` mostra la fotografia reale del brief, altrimenti resta il placeholder neutro.
  */
 export function Photo({
   label,
@@ -11,6 +11,9 @@ export function Photo({
   tone = "ivory",
   zoom = true,
   labelPosition = "center",
+  src,
+  fit = "cover",
+  position,
 }: {
   label: string;
   className?: string;
@@ -18,12 +21,36 @@ export function Photo({
   tone?: "ivory" | "cream" | "green";
   zoom?: boolean;
   labelPosition?: "center" | "bottom";
+  src?: string | undefined;
+  fit?: "cover" | "contain";
+  position?: string | undefined;
 }) {
   const tones = {
     ivory: "bg-ivory",
     cream: "bg-cream",
     green: "bg-green",
   } as const;
+
+  if (src) {
+    return (
+      <figure
+        className={cn("relative overflow-hidden border border-line", tones[tone], className)}
+        style={{ aspectRatio: ratio }}
+      >
+        <img
+          src={src}
+          alt={label}
+          loading="lazy"
+          className={cn(
+            "absolute inset-0 h-full w-full",
+            fit === "contain" ? "object-contain p-6" : "object-cover",
+            zoom && "img-zoom",
+          )}
+          style={position ? { objectPosition: position } : undefined}
+        />
+      </figure>
+    );
+  }
 
   return (
     <figure
