@@ -10,33 +10,141 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CarrelloRouteImport } from './routes/carrello'
+import { Route as CasaLaffranchiRouteImport } from './routes/casa-laffranchi'
+import { Route as CheckoutRouteImport } from './routes/checkout'
+import { Route as ContattiRouteImport } from './routes/contatti'
+import { Route as ShopRouteImport } from './routes/shop'
+import { Route as VignaCantinaRouteImport } from './routes/vigna-cantina'
+import { Route as ViniIndexRouteImport } from './routes/vini.index'
+import { Route as ViniSlugRouteImport } from './routes/vini.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CarrelloRoute = CarrelloRouteImport.update({
+  id: '/carrello',
+  path: '/carrello',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CasaLaffranchiRoute = CasaLaffranchiRouteImport.update({
+  id: '/casa-laffranchi',
+  path: '/casa-laffranchi',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CheckoutRoute = CheckoutRouteImport.update({
+  id: '/checkout',
+  path: '/checkout',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContattiRoute = ContattiRouteImport.update({
+  id: '/contatti',
+  path: '/contatti',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ShopRoute = ShopRouteImport.update({
+  id: '/shop',
+  path: '/shop',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VignaCantinaRoute = VignaCantinaRouteImport.update({
+  id: '/vigna-cantina',
+  path: '/vigna-cantina',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ViniIndexRoute = ViniIndexRouteImport.update({
+  id: '/vini/',
+  path: '/vini/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ViniSlugRoute = ViniSlugRouteImport.update({
+  id: '/vini/$slug',
+  path: '/vini/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/carrello': typeof CarrelloRoute
+  '/casa-laffranchi': typeof CasaLaffranchiRoute
+  '/checkout': typeof CheckoutRoute
+  '/contatti': typeof ContattiRoute
+  '/shop': typeof ShopRoute
+  '/vigna-cantina': typeof VignaCantinaRoute
+  '/vini/$slug': typeof ViniSlugRoute
+  '/vini/': typeof ViniIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/carrello': typeof CarrelloRoute
+  '/casa-laffranchi': typeof CasaLaffranchiRoute
+  '/checkout': typeof CheckoutRoute
+  '/contatti': typeof ContattiRoute
+  '/shop': typeof ShopRoute
+  '/vigna-cantina': typeof VignaCantinaRoute
+  '/vini/$slug': typeof ViniSlugRoute
+  '/vini': typeof ViniIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/carrello': typeof CarrelloRoute
+  '/casa-laffranchi': typeof CasaLaffranchiRoute
+  '/checkout': typeof CheckoutRoute
+  '/contatti': typeof ContattiRoute
+  '/shop': typeof ShopRoute
+  '/vigna-cantina': typeof VignaCantinaRoute
+  '/vini/$slug': typeof ViniSlugRoute
+  '/vini/': typeof ViniIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/carrello'
+    | '/casa-laffranchi'
+    | '/checkout'
+    | '/contatti'
+    | '/shop'
+    | '/vigna-cantina'
+    | '/vini/$slug'
+    | '/vini/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/carrello'
+    | '/casa-laffranchi'
+    | '/checkout'
+    | '/contatti'
+    | '/shop'
+    | '/vigna-cantina'
+    | '/vini/$slug'
+    | '/vini'
+  id:
+    | '__root__'
+    | '/'
+    | '/carrello'
+    | '/casa-laffranchi'
+    | '/checkout'
+    | '/contatti'
+    | '/shop'
+    | '/vigna-cantina'
+    | '/vini/$slug'
+    | '/vini/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CarrelloRoute: typeof CarrelloRoute
+  CasaLaffranchiRoute: typeof CasaLaffranchiRoute
+  CheckoutRoute: typeof CheckoutRoute
+  ContattiRoute: typeof ContattiRoute
+  ShopRoute: typeof ShopRoute
+  VignaCantinaRoute: typeof VignaCantinaRoute
+  ViniSlugRoute: typeof ViniSlugRoute
+  ViniIndexRoute: typeof ViniIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +156,75 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/carrello': {
+      id: '/carrello'
+      path: '/carrello'
+      fullPath: '/carrello'
+      preLoaderRoute: typeof CarrelloRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/casa-laffranchi': {
+      id: '/casa-laffranchi'
+      path: '/casa-laffranchi'
+      fullPath: '/casa-laffranchi'
+      preLoaderRoute: typeof CasaLaffranchiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/checkout': {
+      id: '/checkout'
+      path: '/checkout'
+      fullPath: '/checkout'
+      preLoaderRoute: typeof CheckoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contatti': {
+      id: '/contatti'
+      path: '/contatti'
+      fullPath: '/contatti'
+      preLoaderRoute: typeof ContattiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/shop': {
+      id: '/shop'
+      path: '/shop'
+      fullPath: '/shop'
+      preLoaderRoute: typeof ShopRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/vigna-cantina': {
+      id: '/vigna-cantina'
+      path: '/vigna-cantina'
+      fullPath: '/vigna-cantina'
+      preLoaderRoute: typeof VignaCantinaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/vini/': {
+      id: '/vini/'
+      path: '/vini'
+      fullPath: '/vini/'
+      preLoaderRoute: typeof ViniIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/vini/$slug': {
+      id: '/vini/$slug'
+      path: '/vini/$slug'
+      fullPath: '/vini/$slug'
+      preLoaderRoute: typeof ViniSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CarrelloRoute: CarrelloRoute,
+  CasaLaffranchiRoute: CasaLaffranchiRoute,
+  CheckoutRoute: CheckoutRoute,
+  ContattiRoute: ContattiRoute,
+  ShopRoute: ShopRoute,
+  VignaCantinaRoute: VignaCantinaRoute,
+  ViniSlugRoute: ViniSlugRoute,
+  ViniIndexRoute: ViniIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
