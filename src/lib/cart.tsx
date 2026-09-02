@@ -1,0 +1,88 @@
+import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
+import { products, type Product } from "@/data/products";
+
+export type CartLine = { slug: string; qty: number };
+
+type CartContextValue = {
+  lines: CartLine[];
+  items: { product: Product; qty: number }[];
+  count: number;
+  subtotal: number;
+  add: (slug: string, qty?: number) => void;
+  remove: (slug: string) => void;
+  setQty: (slug: string, qty: number) => void;
+  clear: () => void;
+};
+
+const STORAGE_KEY = "casa-laffranchi-cart";
+const CartContext = createContext<CartContextValue | null>(null);
+
+export function CartProvider({ children }: { children: ReactNode }) {
+  const [lines, setLines] = useState<CartLine[]>([]);
+
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (raw) setLines(JSON.parse(raw));
+    } catch {
+      /* ignore */
+    }
+  }, []);
+
+  useEffect(() => {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(lines));
+    } catch {
+      /* ignore */
+    }
+  }, [lines]);
+
+  const add = useCallback((slug: string, qty = 1) => {
+    setLines((prev) => {
+      const found = prev.find((l) => l.slug === slug);
+      if (found) return prev.map((l) => (l.slug === slug ? { ...l, qty: l.qty + qty } : l));
+      return [...prev, { slug, qty }];
+    });
+  }, []);
+
+  const remove = useCallback((slug: string) => {
+    setLines((prev) => prev.filter((l) => l.slug !== slug));
+  }, []);
+
+  const setQty = useCallback((slug: string, qty: number) => {
+    setLines((prev) =>
+      qty <= 0
+        ? prev.filter((l) => l.slug !== slug)
+        : prev.map((l) => (l.slug === slug ? { ...l, qty } : l)),
+    );
+  }, []);
+
+  const clear = useCallback(() => setLines([]), []);
+
+  const value = useMemo<CartContextValue>(() => {
+    const items = lines
+      .map((l) => {
+        const product = products.find((p) => p.slug === l.slug);
+        return product ? { product, qty: l.qty } : null;
+      })
+      .filter((x): x is { product: Product; qty: number } => x !== null);
+    return {
+      lines,
+      items,
+      count: items.reduce((s, i) => s + i.qty, 0),
+      subtotal: items.reduce((s, i) => s + i.qty * i.product.prezzo, 0),
+      add,
+      remove,
+      setQty,
+      clear,
+    };
+  }, [lines, add, remove, setQty, clear]);
+
+  return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
+}
+
+export function useCart() {
+  const ctx = useContext(CartContext);
+  if (!ctx) throw new Error("useCart deve essere usato dentro CartProvider");
+  return ctx;
+}

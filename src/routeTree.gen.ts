@@ -10,33 +10,53 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CasaLaffranchiRouteImport } from './routes/casa-laffranchi'
+import { Route as VignaCantinaRouteImport } from './routes/vigna-cantina'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CasaLaffranchiRoute = CasaLaffranchiRouteImport.update({
+  id: '/casa-laffranchi',
+  path: '/casa-laffranchi',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VignaCantinaRoute = VignaCantinaRouteImport.update({
+  id: '/vigna-cantina',
+  path: '/vigna-cantina',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/casa-laffranchi': typeof CasaLaffranchiRoute
+  '/vigna-cantina': typeof VignaCantinaRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/casa-laffranchi': typeof CasaLaffranchiRoute
+  '/vigna-cantina': typeof VignaCantinaRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/casa-laffranchi': typeof CasaLaffranchiRoute
+  '/vigna-cantina': typeof VignaCantinaRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/casa-laffranchi' | '/vigna-cantina'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/casa-laffranchi' | '/vigna-cantina'
+  id: '__root__' | '/' | '/casa-laffranchi' | '/vigna-cantina'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CasaLaffranchiRoute: typeof CasaLaffranchiRoute
+  VignaCantinaRoute: typeof VignaCantinaRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +68,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/casa-laffranchi': {
+      id: '/casa-laffranchi'
+      path: '/casa-laffranchi'
+      fullPath: '/casa-laffranchi'
+      preLoaderRoute: typeof CasaLaffranchiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/vigna-cantina': {
+      id: '/vigna-cantina'
+      path: '/vigna-cantina'
+      fullPath: '/vigna-cantina'
+      preLoaderRoute: typeof VignaCantinaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CasaLaffranchiRoute: CasaLaffranchiRoute,
+  VignaCantinaRoute: VignaCantinaRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
