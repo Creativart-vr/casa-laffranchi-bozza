@@ -38,8 +38,8 @@ function Home() {
       <section className="relative">
         <div className="container-editorial pt-10 lg:pt-16">
           <div className="relative">
-            <Photo label="Foto vigneto — colli di Castenedolo" ratio="16/9" tone="ivory" zoom={false} className="hidden md:block" />
-            <Photo label="Foto vigneto" ratio="4/5" tone="ivory" zoom={false} className="md:hidden" />
+            <Photo label="Foto vigneto — colli di Castenedolo" ratio="16/9" tone="ivory" zoom={false} labelPosition="bottom" className="hidden md:block" />
+            <Photo label="Foto vigneto" ratio="4/5" tone="ivory" zoom={false} labelPosition="bottom" className="md:hidden" />
             <div className="pointer-events-none absolute inset-0 flex items-center justify-center px-6">
               <div className="max-w-3xl text-center">
                 <Reveal>

@@ -10,12 +10,14 @@ export function Photo({
   ratio = "4/5",
   tone = "ivory",
   zoom = true,
+  labelPosition = "center",
 }: {
   label: string;
   className?: string;
   ratio?: string;
   tone?: "ivory" | "cream" | "green";
   zoom?: boolean;
+  labelPosition?: "center" | "bottom";
 }) {
   const tones = {
     ivory: "bg-ivory",
@@ -47,6 +49,7 @@ export function Photo({
         <span
           className={cn(
             "relative font-display text-[0.68rem] uppercase tracking-[0.42em]",
+            labelPosition === "bottom" && "absolute bottom-8 left-1/2 -translate-x-1/2",
             tone === "green" ? "text-white/70" : "text-muted-foreground",
           )}
         >
