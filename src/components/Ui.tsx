@@ -44,7 +44,7 @@ export function ButtonLink({
 
       <Corners variant={variant} />
       {children}
-    </Link>
+    </LinkAny>
   );
 }
 
