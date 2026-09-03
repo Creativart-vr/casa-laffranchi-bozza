@@ -1,10 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useRef, useState } from "react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Photo } from "@/components/Photo";
 import { Reveal } from "@/components/Reveal";
 import { ButtonLink, SectionTitle } from "@/components/Ui";
 import { PageHero } from "@/components/PageHero";
 import { citazioni } from "@/data/site";
-import { media } from "@/data/media";
+import { galleriaVigna, media } from "@/data/media";
 
 export const Route = createFileRoute("/vigna-cantina")({
   head: () => ({
@@ -98,29 +100,7 @@ function VignaPage() {
         </div>
       </section>
 
-      <section className="section-y">
-        <div className="container-editorial grid gap-10 lg:grid-cols-3">
-          <Reveal>
-            <Photo label="Lavorazione tra i filari con il trattore" ratio="3/4" tone="ivory" src={media.trattoreVigna} />
-          </Reveal>
-          <Reveal delay={90}>
-            <Photo label="Vendemmia manuale a Casa Laffranchi" ratio="3/4" tone="cream" src={media.vendemmiaMano} />
-          </Reveal>
-          <Reveal delay={180}>
-            <Photo label="Il vigneto in autunno" ratio="3/4" tone="ivory" src={media.vignetoAutunno} />
-          </Reveal>
-        </div>
-        <div className="container-editorial mt-16">
-          <Reveal>
-            <p className="mx-auto max-w-2xl text-center font-serif text-2xl italic leading-relaxed text-muted-foreground">
-              “{citazioni.terra.testo}”
-              <span className="mt-3 block font-display text-[0.62rem] uppercase not-italic tracking-[0.3em]">
-                — {citazioni.terra.autore}
-              </span>
-            </p>
-          </Reveal>
-        </div>
-      </section>
+      <GalleriaSection />
 
       <section className="bg-green">
         <div className="container-editorial grid items-center gap-14 py-24 lg:grid-cols-2 lg:gap-24 lg:py-32">
@@ -147,5 +127,104 @@ function VignaPage() {
         </div>
       </section>
     </>
+  );
+}
+
+function GalleriaSection() {
+  const trackRef = useRef<HTMLDivElement>(null);
+  const [index, setIndex] = useState(0);
+
+  const scrollTo = (dir: 1 | -1) => {
+    const track = trackRef.current;
+    if (!track) return;
+    const slide = track.querySelector<HTMLElement>("[data-slide]");
+    const step = slide ? slide.offsetWidth + 24 : track.clientWidth * 0.8;
+    track.scrollBy({ left: dir * step, behavior: "smooth" });
+  };
+
+  const onScroll = () => {
+    const track = trackRef.current;
+    if (!track) return;
+    const slide = track.querySelector<HTMLElement>("[data-slide]");
+    const step = slide ? slide.offsetWidth + 24 : 1;
+    setIndex(Math.min(galleriaVigna.length - 1, Math.max(0, Math.round(track.scrollLeft / step))));
+  };
+
+  return (
+    <section className="section-y overflow-hidden">
+      <div className="container-editorial">
+        <div className="grid grid-cols-[minmax(0,1fr)_auto] items-end gap-6">
+          <Reveal className="min-w-0">
+            <SectionTitle
+              align="left"
+              title={<>La cantina<br />in immagini</>}
+              subtitle="Vigna, vendemmia, affinamento"
+            />
+          </Reveal>
+          <div className="flex shrink-0 items-center gap-3">
+            <button
+              type="button"
+              onClick={() => scrollTo(-1)}
+              aria-label="Immagine precedente"
+              className="grid h-12 w-12 place-items-center border border-line text-foreground transition-colors hover:bg-green hover:text-white"
+            >
+              <ArrowLeft className="h-4 w-4" strokeWidth={1.5} />
+            </button>
+            <button
+              type="button"
+              onClick={() => scrollTo(1)}
+              aria-label="Immagine successiva"
+              className="grid h-12 w-12 place-items-center border border-line text-foreground transition-colors hover:bg-green hover:text-white"
+            >
+              <ArrowRight className="h-4 w-4" strokeWidth={1.5} />
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div
+        ref={trackRef}
+        onScroll={onScroll}
+        className="mt-14 flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-px-[max(1.5rem,calc((100vw-72rem)/2))] px-[max(1.5rem,calc((100vw-72rem)/2))] pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+      >
+        {galleriaVigna.map((foto, i) => (
+          <figure key={foto.src} data-slide className="w-[78vw] shrink-0 snap-start sm:w-[46vw] lg:w-[30rem]">
+            <div className="overflow-hidden border border-line bg-cream">
+              <Photo label={foto.label} ratio="3/4" tone="cream" src={foto.src} />
+            </div>
+            <figcaption className="mt-5 flex items-baseline gap-4 border-t border-line pt-4">
+              <span className="font-display text-[0.7rem] tracking-[0.35em] text-muted-foreground">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <span className="font-serif text-lg italic leading-snug text-muted-foreground">
+                {foto.didascalia}
+              </span>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+
+      <div className="container-editorial mt-10">
+        <div className="flex items-center gap-2">
+          {galleriaVigna.map((foto, i) => (
+            <span
+              key={foto.src}
+              className={`h-px flex-1 transition-colors duration-500 ${i === index ? "bg-green" : "bg-line"}`}
+            />
+          ))}
+        </div>
+      </div>
+
+      <div className="container-editorial mt-16">
+        <Reveal>
+          <p className="mx-auto max-w-2xl text-center font-serif text-2xl italic leading-relaxed text-muted-foreground">
+            “{citazioni.terra.testo}”
+            <span className="mt-3 block font-display text-[0.62rem] uppercase not-italic tracking-[0.3em]">
+              — {citazioni.terra.autore}
+            </span>
+          </p>
+        </Reveal>
+      </div>
+    </section>
   );
 }
