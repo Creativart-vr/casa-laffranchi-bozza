@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import type { ReactElement } from "react";
+import { useCallback, useEffect, useState, type ReactElement } from "react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { PageHero } from "@/components/PageHero";
 import { ButtonLink } from "@/components/Ui";
@@ -64,6 +65,106 @@ function WineList({ items }: { items: Product[] }) {
   );
 }
 
+/* ——— Carosello delle etichette, subito sotto l'intro ——— */
+
+function slideText(p: Product) {
+  const parti = [
+    p.profumo ? `Al naso: ${p.profumo.toLowerCase()}.` : null,
+    p.gusto ? `In bocca è ${p.gusto.toLowerCase()}.` : null,
+    p.gastronomia ? `A tavola accompagna ${p.gastronomia.toLowerCase()}.` : null,
+  ].filter(Boolean);
+  return parti.join(" ");
+}
+
+function WineSlider({ items }: { items: Product[] }) {
+  const [index, setIndex] = useState(0);
+  const total = items.length;
+  const go = useCallback((dir: 1 | -1) => setIndex((i) => (i + dir + total) % total), [total]);
+
+  useEffect(() => {
+    const id = window.setInterval(() => setIndex((i) => (i + 1) % total), 7000);
+    return () => window.clearInterval(id);
+  }, [total]);
+
+  const p = items[index]!;
+
+  return (
+    <section aria-label="Le etichette in evidenza" className="relative overflow-hidden bg-cream">
+      <div className="container-editorial relative grid items-center gap-10 py-16 lg:grid-cols-2 lg:gap-20 lg:py-24">
+        {/* Testo */}
+        <div key={p.slug} className="slide-in max-w-xl">
+          <p className="eyebrow">{p.categoria}</p>
+          <h2 className="mt-4 text-[2.6rem] leading-[1.02] sm:text-[3.4rem]">{p.nome}</h2>
+          <p className="mt-3 font-display text-[0.95rem] uppercase tracking-[0.28em] text-foreground">
+            {p.tipologia}
+          </p>
+          <p className="mt-7 leading-relaxed text-muted-foreground">{slideText(p)}</p>
+          <div className="mt-9 flex flex-wrap items-center gap-x-10 gap-y-5">
+            <LinkAny
+              to="/vini/$slug"
+              params={{ slug: p.slug }}
+              className="link-underline font-display text-[0.95rem] uppercase tracking-[0.22em] text-green"
+            >
+              Scopri di più
+            </LinkAny>
+            <LinkAny
+              to="/vini/$slug"
+              params={{ slug: p.slug }}
+              className="inline-block bg-green px-7 py-3 font-display text-[0.85rem] uppercase tracking-[0.22em] text-white transition-opacity duration-500 hover:opacity-80"
+            >
+              Scheda tecnica
+            </LinkAny>
+            <span className="font-serif text-[1.05rem] italic text-green">{euro(p.prezzo)}</span>
+          </div>
+        </div>
+
+        {/* Bottiglia */}
+        <div className="relative flex items-center justify-center">
+          <img
+            key={p.slug}
+            src={p.immagine}
+            alt={`Bottiglia di ${p.nome}, ${p.tipologia}`}
+            className="slide-in max-h-[420px] w-auto object-contain lg:max-h-[520px]"
+          />
+        </div>
+
+        {/* Frecce laterali */}
+        <button
+          type="button"
+          onClick={() => go(-1)}
+          aria-label="Vino precedente"
+          className="absolute left-4 top-1/2 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-line bg-ivory text-green transition-opacity duration-500 hover:opacity-60 md:flex"
+        >
+          <ArrowLeft className="h-5 w-5" strokeWidth={1.25} />
+        </button>
+        <button
+          type="button"
+          onClick={() => go(1)}
+          aria-label="Vino successivo"
+          className="absolute right-4 top-1/2 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-line bg-ivory text-green transition-opacity duration-500 hover:opacity-60 md:flex"
+        >
+          <ArrowRight className="h-5 w-5" strokeWidth={1.25} />
+        </button>
+      </div>
+
+      {/* Indicatori */}
+      <div className="relative flex items-center justify-center gap-3 pb-10">
+        {items.map((item, i) => (
+          <button
+            key={item.slug}
+            type="button"
+            onClick={() => setIndex(i)}
+            aria-label={`Vai a ${item.nome}`}
+            className={`h-px transition-all duration-500 ${
+              i === index ? "w-10 bg-green" : "w-6 bg-line hover:bg-green-soft"
+            }`}
+          />
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function ViniPage() {
   const carta = products.filter(
     (p) => p.categoria !== "Formati speciali" && p.categoria !== "Distillati",
@@ -78,6 +179,9 @@ function ViniPage() {
         title={<>I nostri vini</>}
         intro="Una sola collina, nove etichette. Dalla vigna di Castenedolo alla bottiglia, senza scorciatoie."
       />
+
+      {/* Carosello delle etichette */}
+      <WineSlider items={carta.filter((p) => p.immagine)} />
 
       {/* Manifesto + carta dei vini, alla maniera di una wine list editoriale */}
       <section className="section-y">
