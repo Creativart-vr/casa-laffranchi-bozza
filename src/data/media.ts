@@ -1,7 +1,7 @@
 /**
  * Fotografie ufficiali Casa Laffranchi.
- * Tutti i file risiedono in /public/images e sono referenziati con URL
- * root-relative (/images/...), stabili in qualsiasi hosting e su ogni route.
+ * Tutti i file risiedono in public/images e sono referenziati con URL
+ * root-relative sotto /images, stabili in qualsiasi hosting e su ogni route.
  */
 export const media = {
   heroVigneto: "/images/hero-vigneto.jpg",
@@ -34,7 +34,7 @@ export const bottleImages: Record<string, string> = {
   valens: "/images/valens.png",
   caelestis: "/images/caelestis.png",
   andreas: "/images/andreas.png",
-  burtuli: "/images/burtuli.png",
+  burtuli: "/images/burtuli.jpg",
   rocolet: "/images/rocolet.png",
   "san-bartolomeo": "/images/san-bartolomeo.png",
   "burtuli-magnum": "/images/burtuli-magnum.jpg",
@@ -43,4 +43,4 @@ export const bottleImages: Record<string, string> = {
 };
 
 /** Logo ufficiale (header, footer, favicon). */
-export const logoUfficiale = "/images/logo-ufficiale.jpg";
+export const logoUfficiale = "/images/logo-casa-laffranchi-ufficiale.jpg";
