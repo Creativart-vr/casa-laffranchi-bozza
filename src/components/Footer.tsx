@@ -12,7 +12,7 @@ export function Footer() {
             <img
               src={logoUfficiale.url}
               alt="Casa Laffranchi"
-              className="h-20 w-auto object-contain object-left"
+              className="h-28 w-auto object-contain object-left"
             />
             <p className="mt-4 max-w-sm font-serif text-xl italic leading-relaxed text-muted-foreground">
               {site.payoff}. Una famiglia, una collina, poche bottiglie fatte bene.

@@ -41,7 +41,7 @@ export function Header() {
           <div
             className={cn(
               "flex items-center justify-between transition-all duration-500",
-              scrolled ? "h-[72px]" : "h-[92px]",
+              scrolled ? "h-[88px]" : "h-[124px]",
             )}
           >
             <div className="flex flex-1 items-center gap-4">
@@ -75,7 +75,7 @@ export function Header() {
                 alt="Casa Laffranchi"
                 className={cn(
                   "mx-auto w-auto object-contain transition-all duration-500",
-                  scrolled ? "h-11" : "h-14 sm:h-16",
+                  scrolled ? "h-14" : "h-20 sm:h-24",
                 )}
               />
               <span className="sr-only">{site.brand}</span>
