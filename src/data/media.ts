@@ -1,7 +1,7 @@
 /**
  * Fotografie ufficiali Casa Laffranchi.
- * Tutti i file risiedono in /public/images e sono referenziati con URL
- * root-relative (/images/...), stabili in qualsiasi hosting e su ogni route.
+ * Tutti i file risiedono in public/images e sono referenziati con URL
+ * root-relative sotto /images, stabili in qualsiasi hosting e su ogni route.
  */
 export const media = {
   heroVigneto: "/images/hero-vigneto.jpg",
