@@ -100,29 +100,7 @@ function VignaPage() {
         </div>
       </section>
 
-      <section className="section-y">
-        <div className="container-editorial grid gap-10 lg:grid-cols-3">
-          <Reveal>
-            <Photo label="Lavorazione tra i filari con il trattore" ratio="3/4" tone="ivory" src={media.trattoreVigna} />
-          </Reveal>
-          <Reveal delay={90}>
-            <Photo label="Vendemmia manuale a Casa Laffranchi" ratio="3/4" tone="cream" src={media.vendemmiaMano} />
-          </Reveal>
-          <Reveal delay={180}>
-            <Photo label="Il vigneto in autunno" ratio="3/4" tone="ivory" src={media.vignetoAutunno} />
-          </Reveal>
-        </div>
-        <div className="container-editorial mt-16">
-          <Reveal>
-            <p className="mx-auto max-w-2xl text-center font-serif text-2xl italic leading-relaxed text-muted-foreground">
-              “{citazioni.terra.testo}”
-              <span className="mt-3 block font-display text-[0.62rem] uppercase not-italic tracking-[0.3em]">
-                — {citazioni.terra.autore}
-              </span>
-            </p>
-          </Reveal>
-        </div>
-      </section>
+      <GalleriaSection />
 
       <section className="bg-green">
         <div className="container-editorial grid items-center gap-14 py-24 lg:grid-cols-2 lg:gap-24 lg:py-32">
