@@ -11,6 +11,12 @@ import vendemmiaMano from "@/assets/vendemmia-mano.jpg.asset.json";
 import vignetoEstate from "@/assets/vigneto-estate.jpg.asset.json";
 import vignetoAutunno from "@/assets/vigneto-autunno.jpg.asset.json";
 import stradaCollina from "@/assets/strada-collina.jpg.asset.json";
+import galleryGrappolo from "@/assets/gallery-grappolo.jpg.asset.json";
+import galleryGrappoliMano from "@/assets/gallery-grappoli-mano.jpg.asset.json";
+import galleryBotti from "@/assets/gallery-botti.jpg.asset.json";
+import galleryUvaBianca from "@/assets/gallery-uva-bianca.jpg.asset.json";
+import galleryFilari from "@/assets/gallery-filari.jpg.asset.json";
+import galleryCantina from "@/assets/gallery-cantina.jpg.asset.json";
 
 import valens from "@/assets/valens.jpg.asset.json";
 import caelestis from "@/assets/caelestis.jpg.asset.json";
@@ -38,6 +44,16 @@ export const media = {
   vignetoAutunno: vignetoAutunno.url,
   stradaCollina: stradaCollina.url,
 } as const;
+
+/** Galleria orizzontale “Vigna & Cantina”. */
+export const galleriaVigna = [
+  { src: galleryGrappolo.url, label: "Grappolo al tramonto", didascalia: "Il frutto, pronto per la vendemmia" },
+  { src: galleryGrappoliMano.url, label: "Grappoli tra le mani", didascalia: "La raccolta, grappolo per grappolo" },
+  { src: galleryFilari.url, label: "Filari visti dall'alto", didascalia: "La collina di Castenedolo" },
+  { src: galleryUvaBianca.url, label: "Uva bianca appena raccolta", didascalia: "Le uve bianche di Valens" },
+  { src: galleryBotti.url, label: "Botti di legno in cantina", didascalia: "Il riposo in legno" },
+  { src: galleryCantina.url, label: "La cantina storica", didascalia: "L'affinamento sotto la volta" },
+] as const;
 
 /** Fotografie prodotto (bottiglie) del brief, per slug. */
 export const bottleImages: Record<string, string> = {
