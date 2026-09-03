@@ -1,3 +1,4 @@
+import type React from "react";
 import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
 import { products, type Product } from "@/data/products";
 
@@ -15,7 +16,13 @@ type CartContextValue = {
 };
 
 const STORAGE_KEY = "casa-laffranchi-cart";
-const CartContext = createContext<CartContextValue | null>(null);
+const globalScope = globalThis as unknown as {
+  __casaLaffranchiCartContext?: React.Context<CartContextValue | null>;
+};
+
+const CartContext =
+  globalScope.__casaLaffranchiCartContext ??
+  (globalScope.__casaLaffranchiCartContext = createContext<CartContextValue | null>(null));
 
 export function CartProvider({ children }: { children: ReactNode }) {
   const [lines, setLines] = useState<CartLine[]>([]);
@@ -85,8 +92,18 @@ export function CartProvider({ children }: { children: ReactNode }) {
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 }
 
+const EMPTY_CART: CartContextValue = {
+  lines: [],
+  items: [],
+  count: 0,
+  subtotal: 0,
+  add: () => {},
+  remove: () => {},
+  setQty: () => {},
+  clear: () => {},
+};
+
 export function useCart() {
   const ctx = useContext(CartContext);
-  if (!ctx) throw new Error("useCart deve essere usato dentro CartProvider");
-  return ctx;
+  return ctx ?? EMPTY_CART;
 }
