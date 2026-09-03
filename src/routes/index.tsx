@@ -183,7 +183,7 @@ function Home() {
               label="Barrique di rovere nella cantina di Casa Laffranchi"
               ratio="4/3"
               tone="green"
-              src={media.barrique}
+              src={media.bottiCantina}
             />
           </Reveal>
         </div>
