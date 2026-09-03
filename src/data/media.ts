@@ -32,6 +32,7 @@ export const media = {
   trattoreVigna: trattoreVigna.url,
   uvaMano: uvaMano.url,
   barrique: barrique.url,
+  bottiCantina: bottiCantina.url,
   vendemmiaMano: vendemmiaMano.url,
   vignetoEstate: vignetoEstate.url,
   vignetoAutunno: vignetoAutunno.url,
