@@ -58,7 +58,7 @@ function ShopPage() {
       <PageHero
         eyebrow="Shop"
         title={<>Acquista online</>}
-        intro="Le nostre bottiglie, spedite direttamente dalla cantina. Checkout dimostrativo di questo prototipo."
+        intro="Le nostre bottiglie, spedite direttamente dalla cantina."
       />
 
       <section className="section-y">
