@@ -1,69 +1,46 @@
-import heroVigneto from "@/assets/hero-vigneto.jpg.asset.json";
-import logoCasa from "@/assets/logo-casa-laffranchi.jpg.asset.json";
-import casaAerea from "@/assets/casa-aerea.jpg.asset.json";
-import casaCollina from "@/assets/casa-collina.jpg.asset.json";
-import vignetoFilari from "@/assets/vigneto-filari.jpg.asset.json";
-import trattoreVigna from "@/assets/trattore-vigna.jpg.asset.json";
-import uvaMano from "@/assets/uva-mano.jpg.asset.json";
-import barrique from "@/assets/barrique.jpg.asset.json";
-import bottiCantina from "@/assets/botti-cantina.jpg.asset.json";
-import vendemmiaMano from "@/assets/vendemmia-mano.jpg.asset.json";
-import vignetoEstate from "@/assets/vigneto-estate.jpg.asset.json";
-import vignetoAutunno from "@/assets/vigneto-autunno.jpg.asset.json";
-import stradaCollina from "@/assets/strada-collina.jpg.asset.json";
-import galleryGrappolo from "@/assets/gallery-grappolo.jpg.asset.json";
-import galleryGrappoliMano from "@/assets/gallery-grappoli-mano.jpg.asset.json";
-import galleryBotti from "@/assets/gallery-botti.jpg.asset.json";
-import galleryUvaBianca from "@/assets/gallery-uva-bianca.jpg.asset.json";
-import galleryFilari from "@/assets/gallery-filari.jpg.asset.json";
-import galleryCantina from "@/assets/gallery-cantina.jpg.asset.json";
-
-import valens from "@/assets/valens.jpg.asset.json";
-import caelestis from "@/assets/caelestis.jpg.asset.json";
-import andreas from "@/assets/andreas.jpg.asset.json";
-import burtuli from "@/assets/burtuli.jpg.asset.json";
-import rocolet from "@/assets/rocolet.jpg.asset.json";
-import sanBartolomeo from "@/assets/san-bartolomeo.jpg.asset.json";
-import burtuliMagnum from "@/assets/burtuli-magnum.jpg.asset.json";
-import andreasMagnum from "@/assets/andreas-magnum.jpg.asset.json";
-import acquavite from "@/assets/acquavite.jpg.asset.json";
-
-/** Fotografie ufficiali fornite nel brief Casa Laffranchi. */
+/**
+ * Fotografie ufficiali Casa Laffranchi.
+ * Tutti i file risiedono in /public/images e sono referenziati con URL
+ * root-relative (/images/...), stabili in qualsiasi hosting e su ogni route.
+ */
 export const media = {
-  heroVigneto: heroVigneto.url,
-  logo: logoCasa.url,
-  casaAerea: casaAerea.url,
-  casaCollina: casaCollina.url,
-  vignetoFilari: vignetoFilari.url,
-  trattoreVigna: trattoreVigna.url,
-  uvaMano: uvaMano.url,
-  barrique: barrique.url,
-  bottiCantina: bottiCantina.url,
-  vendemmiaMano: vendemmiaMano.url,
-  vignetoEstate: vignetoEstate.url,
-  vignetoAutunno: vignetoAutunno.url,
-  stradaCollina: stradaCollina.url,
+  heroVigneto: "/images/hero-vigneto.jpg",
+  logo: "/images/logo-casa-laffranchi.jpg",
+  casaAerea: "/images/casa-aerea.jpg",
+  casaCollina: "/images/casa-collina.jpg",
+  vignetoFilari: "/images/vigneto-filari.jpg",
+  trattoreVigna: "/images/trattore-vigna.jpg",
+  uvaMano: "/images/uva-mano.jpg",
+  barrique: "/images/barrique.jpg",
+  bottiCantina: "/images/botti-cantina.jpg",
+  vendemmiaMano: "/images/vendemmia-mano.jpg",
+  vignetoEstate: "/images/vigneto-estate.jpg",
+  vignetoAutunno: "/images/vigneto-autunno.jpg",
+  stradaCollina: "/images/strada-collina.jpg",
 } as const;
 
 /** Galleria orizzontale “Vigna & Cantina”. */
 export const galleriaVigna = [
-  { src: galleryGrappolo.url, label: "Grappolo al tramonto", didascalia: "Il frutto, pronto per la vendemmia" },
-  { src: galleryGrappoliMano.url, label: "Grappoli tra le mani", didascalia: "La raccolta, grappolo per grappolo" },
-  { src: galleryFilari.url, label: "Filari visti dall'alto", didascalia: "La collina di Castenedolo" },
-  { src: galleryUvaBianca.url, label: "Uva bianca appena raccolta", didascalia: "Le uve bianche di Valens" },
-  { src: galleryBotti.url, label: "Botti di legno in cantina", didascalia: "Il riposo in legno" },
-  { src: galleryCantina.url, label: "La cantina storica", didascalia: "L'affinamento sotto la volta" },
+  { src: "/images/gallery-grappolo.jpg", label: "Grappolo al tramonto", didascalia: "Il frutto, pronto per la vendemmia" },
+  { src: "/images/gallery-grappoli-mano.jpg", label: "Grappoli tra le mani", didascalia: "La raccolta, grappolo per grappolo" },
+  { src: "/images/gallery-filari.jpg", label: "Filari visti dall'alto", didascalia: "La collina di Castenedolo" },
+  { src: "/images/gallery-uva-bianca.jpg", label: "Uva bianca appena raccolta", didascalia: "Le uve bianche di Valens" },
+  { src: "/images/gallery-botti.jpg", label: "Botti di legno in cantina", didascalia: "Il riposo in legno" },
+  { src: "/images/gallery-cantina.jpg", label: "La cantina storica", didascalia: "L'affinamento sotto la volta" },
 ] as const;
 
-/** Fotografie prodotto (bottiglie) del brief, per slug. */
+/** Fotografie prodotto (bottiglie), per slug. */
 export const bottleImages: Record<string, string> = {
-  valens: valens.url,
-  caelestis: caelestis.url,
-  andreas: andreas.url,
-  burtuli: burtuli.url,
-  rocolet: rocolet.url,
-  "san-bartolomeo": sanBartolomeo.url,
-  "burtuli-magnum": burtuliMagnum.url,
-  "andreas-magnum": andreasMagnum.url,
-  acquavite: acquavite.url,
+  valens: "/images/valens.png",
+  caelestis: "/images/caelestis.png",
+  andreas: "/images/andreas.png",
+  burtuli: "/images/burtuli.png",
+  rocolet: "/images/rocolet.png",
+  "san-bartolomeo": "/images/san-bartolomeo.png",
+  "burtuli-magnum": "/images/burtuli-magnum.jpg",
+  "andreas-magnum": "/images/andreas-magnum.png",
+  acquavite: "/images/acquavite.png",
 };
+
+/** Logo ufficiale (header, footer, favicon). */
+export const logoUfficiale = "/images/logo-ufficiale.jpg";
