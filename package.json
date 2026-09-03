@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite dev",
-    "build": "vite build",
-    "build:dev": "vite build --mode development",
+    "build": "vite build && node scripts/copy-public-images.mjs",
+    "build:dev": "vite build --mode development && node scripts/copy-public-images.mjs",
     "preview": "vite preview",
     "lint": "eslint .",
     "format": "prettier --write ."
