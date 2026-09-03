@@ -177,7 +177,7 @@ function ViniPage() {
       <PageHero
         eyebrow="La carta"
         title={<>I nostri vini</>}
-        intro="Una sola collina, nove etichette. Dalla vigna di Castenedolo alla bottiglia, senza scorciatoie."
+        intro="Una sola collina, nove etichette. Dalla vigna di Castenedolo alla bottiglia."
       />
 
       {/* Carosello delle etichette */}
