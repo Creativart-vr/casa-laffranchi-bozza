@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import type { ReactElement } from "react";
+import { useCallback, useEffect, useState, type ReactElement } from "react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { PageHero } from "@/components/PageHero";
 import { ButtonLink } from "@/components/Ui";
