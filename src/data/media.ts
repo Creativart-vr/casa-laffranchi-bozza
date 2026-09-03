@@ -6,6 +6,7 @@ import vignetoFilari from "@/assets/vigneto-filari.jpg.asset.json";
 import trattoreVigna from "@/assets/trattore-vigna.jpg.asset.json";
 import uvaMano from "@/assets/uva-mano.jpg.asset.json";
 import barrique from "@/assets/barrique.jpg.asset.json";
+import bottiCantina from "@/assets/botti-cantina.jpg.asset.json";
 import vendemmiaMano from "@/assets/vendemmia-mano.jpg.asset.json";
 import vignetoEstate from "@/assets/vigneto-estate.jpg.asset.json";
 import vignetoAutunno from "@/assets/vigneto-autunno.jpg.asset.json";
