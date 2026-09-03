@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { navigation, site } from "@/data/site";
 import { products } from "@/data/products";
-import logoUfficiale from "@/assets/logo-ufficiale.jpg.asset.json";
+import { logoUfficiale } from "@/data/media";
 
 export function Footer() {
   return (
@@ -10,7 +10,7 @@ export function Footer() {
         <div className="grid gap-14 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
           <div>
             <img
-              src={logoUfficiale.url}
+              src={logoUfficiale}
               alt="Casa Laffranchi"
               className="h-28 w-auto object-contain object-left"
             />

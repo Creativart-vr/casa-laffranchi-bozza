@@ -6,7 +6,7 @@ import { useCart } from "@/lib/cart";
 import { SearchOverlay } from "./SearchOverlay";
 import { MobileMenu } from "./MobileMenu";
 import { cn } from "@/lib/utils";
-import logoUfficiale from "@/assets/logo-ufficiale.jpg.asset.json";
+import { logoUfficiale } from "@/data/media";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -71,7 +71,7 @@ export function Header() {
 
             <Link to="/" className="shrink-0 text-center" aria-label={`${site.brand} — home`}>
               <img
-                src={logoUfficiale.url}
+                src={logoUfficiale}
                 alt="Casa Laffranchi"
                 className={cn(
                   "mx-auto w-auto object-contain transition-all duration-500",
