@@ -1,10 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useRef, useState } from "react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Photo } from "@/components/Photo";
 import { Reveal } from "@/components/Reveal";
 import { ButtonLink, SectionTitle } from "@/components/Ui";
 import { PageHero } from "@/components/PageHero";
 import { citazioni } from "@/data/site";
-import { media } from "@/data/media";
+import { galleriaVigna, media } from "@/data/media";
 
 export const Route = createFileRoute("/vigna-cantina")({
   head: () => ({
