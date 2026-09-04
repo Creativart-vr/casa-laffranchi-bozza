@@ -72,6 +72,22 @@ export function Footer() {
             <p className="mt-4 max-w-sm font-serif text-xl italic leading-relaxed text-muted-foreground">
               {site.payoff}. Una famiglia, una collina, poche bottiglie fatte bene.
             </p>
+            <div className="mt-8 flex items-center gap-4">
+              <a
+                href="#"
+                aria-label="Instagram"
+                className="flex h-11 w-11 items-center justify-center border border-line text-green transition-colors duration-300 hover:border-green hover:bg-green hover:text-ivory"
+              >
+                <Instagram className="h-4 w-4" strokeWidth={1.5} />
+              </a>
+              <a
+                href="#"
+                aria-label="Facebook"
+                className="flex h-11 w-11 items-center justify-center border border-line text-green transition-colors duration-300 hover:border-green hover:bg-green hover:text-ivory"
+              >
+                <Facebook className="h-4 w-4" strokeWidth={1.5} />
+              </a>
+            </div>
           </div>
 
           <nav aria-label="Navigazione footer">
