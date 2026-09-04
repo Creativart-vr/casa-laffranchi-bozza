@@ -43,4 +43,4 @@ export const bottleImages: Record<string, string> = {
 };
 
 /** Logo ufficiale (header, footer, favicon). */
-export const logoUfficiale = "/images/logo-casa-laffranchi-ufficiale.jpg";
+export const logoUfficiale = "/images/logo-casa-laffranchi-ufficiale.png";

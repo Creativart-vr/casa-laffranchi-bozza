@@ -75,7 +75,7 @@ export function Header() {
                 alt="Casa Laffranchi"
                 className={cn(
                   "mx-auto w-auto object-contain transition-all duration-500",
-                  scrolled ? "h-14" : "h-20 sm:h-24",
+                  scrolled ? "h-[70px]" : "h-[100px] sm:h-[120px]",
                 )}
               />
               <span className="sr-only">{site.brand}</span>
