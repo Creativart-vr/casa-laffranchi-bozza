@@ -35,7 +35,7 @@ function CasaPage() {
       <PageHero
         eyebrow="Chi siamo"
         title={<>La nostra storia</>}
-        intro="Una storia di famiglia, raccontata in ogni bottiglia."
+        intro="Tutto comincia da una famiglia e da una collina di Castenedolo."
       />
 
       <section className="section-y">
@@ -101,6 +101,10 @@ function CasaPage() {
             <p className="mt-8 text-lg leading-relaxed text-muted-foreground">
               Si raccoglie grappolo per grappolo, a mano, con la stessa attenzione di sempre. Per i rossi si
               aspetta oltre metà ottobre: la pazienza è il primo ingrediente.
+            </p>
+            <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
+              La produzione resta volutamente piccola: ogni bottiglia passa dalle nostre mani, dal filare
+              alla cantina.
             </p>
             <p className="mt-5 font-serif text-2xl italic leading-relaxed text-muted-foreground">
               “{citazioni.terra.testo}”
