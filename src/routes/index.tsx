@@ -103,7 +103,7 @@ function Home() {
           <Reveal delay={100}>
             <SectionTitle
               align="left"
-              title={<>Una storia di famiglia,<br />raccontata in ogni bottiglia</>}
+              title={<>Una famiglia, una collina,<br />poche bottiglie fatte bene</>}
               subtitle="Casa Laffranchi"
             />
             <p className="mt-8 max-w-xl text-lg leading-relaxed text-muted-foreground">
@@ -112,8 +112,9 @@ function Home() {
               fase — senza intermediari e senza compromessi.
             </p>
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted-foreground">
-              Su terreni argillosi morenici coltiviamo vigne esposte al sole del mattino, che danno vita a
-              vini di carattere autentico: espressione vera del territorio dei colli di Castenedolo.
+              Su terreni argillosi morenici coltiviamo vigne esposte al sole del mattino. Le quantità restano
+              quelle che la collina concede: poche bottiglie per annata, seguite una a una, dalla vigna
+              all'etichetta.
             </p>
             <div className="mt-10">
               <ButtonLink to="/casa-laffranchi">La nostra storia</ButtonLink>
@@ -196,8 +197,8 @@ function Home() {
             <SectionTitle title="Shop online" subtitle="Acquisto diretto" />
           </Reveal>
           <p className="mx-auto mt-8 max-w-2xl text-center text-lg leading-relaxed text-muted-foreground">
-            Ordina i nostri vini direttamente dal sito — consegna in tutta Italia. Bottiglie singole o
-            confezioni regalo.
+            Ordina i vini della nostra collina direttamente dal sito — consegna in tutta Italia, finché
+            l'annata è disponibile. Bottiglie singole o confezioni regalo.
           </p>
           <div className="mt-16 grid gap-px border border-line bg-line sm:grid-cols-3">
             {trustPoints.map((t, i) => (
