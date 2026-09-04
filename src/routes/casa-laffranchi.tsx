@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { cn } from "@/lib/utils";
 import { Photo } from "@/components/Photo";
 import { Reveal } from "@/components/Reveal";
 import { ButtonLink, SectionTitle } from "@/components/Ui";
