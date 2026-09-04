@@ -2,7 +2,7 @@ export const site = {
   brand: "Casa Laffranchi",
   legal: "Azienda Agricola Contrini Pasquina",
   payoff: "Vino pregiato dei colli di Castenedolo",
-  claim: "Una storia di famiglia,\nraccontata in ogni bottiglia",
+  claim: "Una famiglia, una collina,\npoche bottiglie fatte bene",
   address: {
     street: "Via Giovanni Bettoni, 42",
     city: "25014 Castenedolo (BS)",

@@ -60,7 +60,7 @@ function VignaPage() {
       <PageHero
         eyebrow="Il processo"
         title={<>Vigna &amp; Cantina</>}
-        intro="Dal terreno argilloso morenico alla bottiglia: ogni passaggio è seguito a mano, in azienda."
+        intro="Dal terreno argilloso morenico alla bottiglia: ogni passaggio è seguito a mano, in azienda, dalla famiglia."
       />
 
       <section className="section-y">
@@ -74,7 +74,8 @@ function VignaPage() {
             </p>
             <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
               È da qui che nascono la mineralità di Valens e Andreas e la struttura piena di Burtulì e
-              Rocolet.
+              Rocolet. Coltiviamo solo le nostre vigne, su questa collina: niente uve acquistate, niente
+              scorciatoie.
             </p>
           </Reveal>
           <Reveal delay={100}>

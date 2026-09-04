@@ -200,9 +200,10 @@ function ViniPage() {
                 </p>
               </div>
               <p className="mt-8 max-w-md leading-relaxed text-muted-foreground">
-                Ogni etichetta nasce dalle stesse vigne, vendemmiate a mano e vinificate in cantina
-                con tempi lunghi. La carta si legge come un percorso: si comincia dai bianchi e
-                dalle bollicine, si prosegue con i rossi e si chiude con il passito.
+                Ogni etichetta nasce dalle stesse vigne di famiglia, vendemmiate a mano e vinificate
+                in cantina con tempi lunghi. Le quantità sono quelle che la collina concede: poche
+                bottiglie, curate una per una. La carta si legge come un percorso: si comincia dai
+                bianchi e dalle bollicine, si prosegue con i rossi e si chiude con il passito.
               </p>
               <div className="mt-12 overflow-hidden">
                 <img
@@ -273,7 +274,8 @@ function ViniPage() {
               Le stesse etichette, pronte per essere spedite
             </h2>
             <p className="mx-auto mt-7 max-w-xl leading-relaxed text-muted-foreground">
-              Nello shop trovi ogni vino con fotografia, scheda tecnica e disponibilità.
+              Nello shop trovi ogni vino con fotografia, scheda tecnica e disponibilità — finché
+              l'annata lo permette.
             </p>
             <div className="mt-10">
               <ButtonLink to="/shop">Vai allo shop</ButtonLink>

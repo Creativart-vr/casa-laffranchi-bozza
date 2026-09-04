@@ -38,7 +38,7 @@ function ContattiPage() {
       <PageHero
         eyebrow="Contatti"
         title={<>Vieni a trovarci</>}
-        intro="La cantina è aperta su appuntamento: degustazioni guidate, visita ai filari e vendita diretta."
+        intro="Ad accoglierti è la famiglia: degustazioni guidate, visita ai filari e vendita diretta in cantina, su appuntamento."
       />
 
       <section className="section-y">
