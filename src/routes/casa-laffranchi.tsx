@@ -95,7 +95,14 @@ function CasaPage() {
             {numeri.map((n, i) => (
               <Reveal key={n.label} delay={i * 80} className="bg-background px-8 py-14 text-center">
                 <span aria-hidden className="mx-auto mb-8 block h-px w-10 bg-green" />
-                <p className="font-display text-[3.4rem] leading-none text-green sm:text-[3.8rem]">
+                <p
+                  className={cn(
+                    "font-display leading-none text-green",
+                    n.valore.length > 4
+                      ? "text-[1.15rem] tracking-[0.18em] sm:text-[1.25rem]"
+                      : "text-[3.4rem] sm:text-[3.8rem]",
+                  )}
+                >
                   {n.valore}
                 </p>
                 <p className="mt-4 font-display text-[0.62rem] uppercase tracking-[0.3em] text-muted-foreground">
