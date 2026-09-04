@@ -3,7 +3,7 @@ import { Photo } from "@/components/Photo";
 import { Reveal } from "@/components/Reveal";
 import { ButtonLink, SectionTitle } from "@/components/Ui";
 import { PageHero } from "@/components/PageHero";
-import { citazioni, site, valori } from "@/data/site";
+import { citazioni, numeri, site, valori } from "@/data/site";
 import { media } from "@/data/media";
 
 export const Route = createFileRoute("/casa-laffranchi")({

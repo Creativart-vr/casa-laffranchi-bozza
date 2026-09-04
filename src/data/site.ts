@@ -55,6 +55,17 @@ export const valori = [
   },
 ] as const;
 
+/**
+ * "Casa Laffranchi in numeri" — cifre concrete dell'azienda.
+ * I dati non ancora forniti dal cliente usano placeholder identificabili.
+ */
+export const numeri = [
+  { valore: "XX", label: "Ettari di vigneto" },
+  { valore: "XX", label: "Bottiglie / anno" },
+  { valore: "9", label: "Etichette" },
+  { valore: "DATO DA CLIENTE", label: "Quarto dato distintivo" },
+] as const;
+
 export const trustPoints = [
   {
     title: "Ordine online",
