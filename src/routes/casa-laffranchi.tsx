@@ -1,9 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { cn } from "@/lib/utils";
 import { Photo } from "@/components/Photo";
 import { Reveal } from "@/components/Reveal";
 import { ButtonLink, SectionTitle } from "@/components/Ui";
 import { PageHero } from "@/components/PageHero";
-import { citazioni, site, valori } from "@/data/site";
+import { citazioni, numeri, site, valori } from "@/data/site";
 import { media } from "@/data/media";
 
 export const Route = createFileRoute("/casa-laffranchi")({
@@ -83,6 +84,40 @@ function CasaPage() {
               </Reveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="section-y">
+        <div className="container-editorial">
+          <Reveal>
+            <SectionTitle title={<>Casa Laffranchi<br />in numeri</>} subtitle="Una misura concreta" />
+          </Reveal>
+          <div className="mt-16 grid gap-px bg-line sm:grid-cols-2 lg:grid-cols-4">
+            {numeri.map((n, i) => (
+              <Reveal key={n.label} delay={i * 80} className="bg-background px-8 py-14 text-center">
+                <span aria-hidden className="mx-auto mb-8 block h-px w-10 bg-green" />
+                <p
+                  className={cn(
+                    "font-display leading-none text-green",
+                    n.valore.length > 4
+                      ? "text-[1.15rem] tracking-[0.18em] sm:text-[1.25rem]"
+                      : "text-[3.4rem] sm:text-[3.8rem]",
+                  )}
+                >
+                  {n.valore}
+                </p>
+                <p className="mt-4 font-display text-[0.62rem] uppercase tracking-[0.3em] text-muted-foreground">
+                  {n.label}
+                </p>
+              </Reveal>
+            ))}
+          </div>
+          <Reveal delay={120}>
+            <p className="mx-auto mt-12 max-w-xl text-center font-serif text-lg italic text-muted-foreground">
+              Dati reali, misurati sulla nostra terra. Le cifre mancanti saranno aggiornate appena
+              disponibili.
+            </p>
+          </Reveal>
         </div>
       </section>
 
