@@ -63,7 +63,7 @@ function VignaPage() {
         intro="Dal terreno argilloso morenico alla bottiglia: ogni passaggio è seguito a mano, in azienda, dalla famiglia."
       />
 
-      <section className="section-y">
+      <section className="editorial-vineyard-background vineyard-position-left section-y">
         <div className="container-editorial grid items-center gap-14 lg:grid-cols-2 lg:gap-24">
           <Reveal>
             <SectionTitle align="left" title={<>Un terreno<br />che si sente nel calice</>} subtitle="Il vigneto" />
@@ -152,7 +152,7 @@ function GalleriaSection() {
   };
 
   return (
-    <section className="section-y overflow-hidden">
+    <section className="editorial-vineyard-background vineyard-position-right section-y overflow-hidden">
       <div className="container-editorial">
         <div className="grid grid-cols-[minmax(0,1fr)_auto] items-end gap-6">
           <Reveal className="min-w-0">

@@ -101,6 +101,57 @@
   }
 }
 
+/* Incisione botanica istituzionale: resta dietro a ogni contenuto della sezione. */
+@utility editorial-vineyard-background {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-image: url("/images/vineyard-background-casa-laffranchi.svg");
+    background-repeat: no-repeat;
+    background-position: var(--vineyard-position, center center);
+    background-size: cover;
+    opacity: var(--vineyard-opacity, 0.06);
+    mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  }
+
+  @media (max-width: 1023px) {
+    &::before {
+      background-size: auto 88%;
+      opacity: var(--vineyard-opacity-tablet, 0.045);
+    }
+  }
+
+  @media (max-width: 639px) {
+    &::before {
+      background-position: var(--vineyard-position-mobile, center center);
+      background-size: auto 72%;
+      opacity: var(--vineyard-opacity-mobile, 0.035);
+    }
+  }
+}
+
+@utility vineyard-position-left {
+  --vineyard-position: center left;
+  --vineyard-position-mobile: center left;
+}
+
+@utility vineyard-position-right {
+  --vineyard-position: center right;
+  --vineyard-position-mobile: center right;
+}
+
+@utility vineyard-position-center {
+  --vineyard-position: center center;
+  --vineyard-position-mobile: center center;
+}
+
 @utility eyebrow {
   font-family: var(--font-serif);
   font-style: italic;
