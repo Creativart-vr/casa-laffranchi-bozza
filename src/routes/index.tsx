@@ -47,7 +47,7 @@ function Home() {
               tone="ivory"
               zoom={false}
               src={media.heroVigneto}
-              position="center 40%"
+              position="center center"
               className="hidden md:block"
             />
             <Photo
@@ -56,9 +56,10 @@ function Home() {
               tone="ivory"
               zoom={false}
               src={media.heroVigneto}
+              position="55% center"
               className="md:hidden"
             />
-            <div className="pointer-events-none absolute inset-0 bg-green/45" aria-hidden="true" />
+            <div className="pointer-events-none absolute inset-0 bg-green/25" aria-hidden="true" />
             <div className="pointer-events-none absolute inset-0 flex items-center justify-center px-6">
               <div className="max-w-3xl text-center">
                 <Reveal>

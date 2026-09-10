@@ -4,7 +4,7 @@
  * root-relative sotto /images, stabili in qualsiasi hosting e su ogni route.
  */
 export const media = {
-  heroVigneto: "/images/hero-vigneto.jpg",
+  heroVigneto: "/images/hero-vigneto-casa-laffranchi.jpg",
   logo: "/images/logo-casa-laffranchi.jpg",
   casaAerea: "/images/casa-aerea.jpg",
   casaCollina: "/images/casa-collina.jpg",
