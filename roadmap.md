@@ -7,4 +7,4 @@
 - [x] Casa Laffranchi, Vigna & Cantina, Contatti, Carrello con contenuti/foto reali
 - [x] Logo aziendale in header/footer + favicon
 
-- [ ] Introdurre background editoriale vigneto nelle sezioni istituzionali e verificarne il build
+- [x] Introdurre background editoriale vigneto nelle sezioni istituzionali e verificarne il build
