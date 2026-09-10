@@ -41,7 +41,7 @@ function ContattiPage() {
         intro="Ad accoglierti è la famiglia: degustazioni guidate, visita ai filari e vendita diretta in cantina, su appuntamento."
       />
 
-      <section className="section-y">
+      <section className="editorial-vineyard-background vineyard-position-center section-y">
         <div className="container-editorial grid gap-16 lg:grid-cols-[1fr_1.2fr] lg:gap-24">
           <Reveal>
             <SectionTitle align="left" title={<>Dove siamo</>} subtitle="Castenedolo, Brescia" />

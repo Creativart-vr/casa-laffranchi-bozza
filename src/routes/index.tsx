@@ -38,7 +38,7 @@ function Home() {
   return (
     <>
       {/* HERO */}
-      <section className="relative">
+      <section className="editorial-vineyard-background vineyard-position-center relative">
         <div className="container-editorial pt-10 lg:pt-16">
           <div className="relative">
             <Photo
@@ -91,7 +91,7 @@ function Home() {
       </section>
 
       {/* MANIFESTO */}
-      <section className="section-y">
+      <section className="editorial-vineyard-background vineyard-position-left section-y">
         <div className="container-editorial grid items-center gap-14 lg:grid-cols-2 lg:gap-24">
           <Reveal>
             <Photo

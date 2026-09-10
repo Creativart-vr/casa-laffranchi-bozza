@@ -39,7 +39,7 @@ function CasaPage() {
         intro="Tutto comincia da una famiglia e da una collina di Castenedolo."
       />
 
-      <section className="section-y">
+      <section className="editorial-vineyard-background vineyard-position-right section-y">
         <div className="container-editorial grid items-center gap-14 lg:grid-cols-2 lg:gap-24">
           <Reveal>
             <SectionTitle
@@ -87,7 +87,7 @@ function CasaPage() {
         </div>
       </section>
 
-      <section className="section-y">
+      <section className="editorial-vineyard-background vineyard-position-center section-y">
         <div className="container-editorial">
           <Reveal>
             <SectionTitle title={<>Casa Laffranchi<br />in numeri</>} subtitle="Una misura concreta" />
@@ -121,7 +121,7 @@ function CasaPage() {
         </div>
       </section>
 
-      <section className="section-y">
+      <section className="editorial-vineyard-background vineyard-position-left section-y">
         <div className="container-editorial grid items-center gap-14 lg:grid-cols-2 lg:gap-24">
           <Reveal>
             <Photo
