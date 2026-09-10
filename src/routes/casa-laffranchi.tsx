@@ -37,6 +37,7 @@ function CasaPage() {
         eyebrow="Chi siamo"
         title={<>La nostra storia</>}
         intro="Tutto comincia da una famiglia e da una collina di Castenedolo."
+        backgroundImage={media.casaHero}
       />
 
       <section className="editorial-vineyard-background vineyard-position-right section-y">

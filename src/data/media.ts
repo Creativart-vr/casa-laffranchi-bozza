@@ -5,6 +5,7 @@
  */
 export const media = {
   heroVigneto: "/images/hero-vigneto-casa-laffranchi.jpg",
+  casaHero: "/images/casa-laffranchi-hero.jpg",
   logo: "/images/logo-casa-laffranchi.jpg",
   casaAerea: "/images/casa-aerea.jpg",
   casaCollina: "/images/casa-collina.jpg",
