@@ -4,8 +4,6 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Photo } from "@/components/Photo";
 import { Reveal } from "@/components/Reveal";
 import { ButtonLink, SectionTitle } from "@/components/Ui";
-import { PageHero } from "@/components/PageHero";
-import { citazioni } from "@/data/site";
 import { galleriaVigna, media } from "@/data/media";
 
 export const Route = createFileRoute("/vigna-cantina")({
@@ -35,17 +33,17 @@ const fasi = [
   [
     "I",
     "Il vigneto",
-    "Radici che affondano in terre argillose moreniche, esposte al primo sole del mattino. Ogni filare racconta anni di cura, di mani che conoscono la vite come si conosce un vecchio amico fidato.",
+    "Radici che affondano in terre argillose moreniche, esposte al primo sole del mattino.",
   ],
   [
     "II",
     "La vendemmia",
-    "Il momento più atteso dell'anno. Si raccoglie grappolo per grappolo, a mano, con la stessa attenzione di sempre. Per i rossi si aspetta oltre metà ottobre: la pazienza è il primo ingrediente.",
+    "Il momento più atteso dell'anno, quando il lavoro di una stagione intera arriva al suo punto decisivo. Monitoriamo costantemente il grado di maturazione delle uve per individuare il momento esatto della raccolta. Per i rossi si aspetta oltre metà ottobre: la pazienza è il primo ingrediente, perché ogni varietà ha il proprio momento per essere raccolta.",
   ],
   [
     "III",
     "La vinificazione",
-    "Pressatura soffice, temperature bassissime, separazione immediata delle bucce. Non interveniamo: accompagniamo. Ogni uva deve poter raccontare la propria storia, senza forzature e senza fretta.",
+    "Pressatura soffice, temperature bassissime, separazione immediata delle bucce. Interveniamo il minimo indispensabile, lasciando che ogni uva esprima la propria identità.",
   ],
   [
     "IV",
@@ -57,25 +55,47 @@ const fasi = [
 function VignaPage() {
   return (
     <>
-      <PageHero
-        eyebrow="Il processo"
-        title={<>Vigna &amp; Cantina</>}
-        intro="Dal terreno argilloso morenico alla bottiglia: ogni passaggio è seguito a mano, in azienda, dalla famiglia."
-      />
+      <section className="relative isolate overflow-hidden border-b border-line bg-ivory">
+        <div className="absolute inset-0 -z-10" aria-hidden="true">
+          <img
+            src="/images/vigna-cantina-hero.jpg"
+            alt=""
+            className="h-full w-full object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-foreground/50" />
+        </div>
+        <div className="container-editorial py-20 text-center lg:py-28">
+          <Reveal>
+            <p className="eyebrow text-white">Il processo</p>
+            <h1 className="mx-auto mt-5 max-w-4xl text-[2.4rem] leading-[1.02] text-white sm:text-[3.4rem] lg:text-[4.4rem]">
+              Vigna & Cantina
+            </h1>
+            <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-white">
+              Dal terreno argilloso morenico alla bottiglia: ogni passaggio è seguito a mano, in azienda, dalla famiglia.
+            </p>
+          </Reveal>
+        </div>
+      </section>
 
       <section className="editorial-vineyard-background vineyard-position-left section-y">
         <div className="container-editorial grid items-center gap-14 lg:grid-cols-2 lg:gap-24">
           <Reveal>
             <SectionTitle align="left" title={<>Un terreno<br />che si sente nel calice</>} subtitle="Il vigneto" />
             <p className="mt-8 text-lg leading-relaxed text-muted-foreground">
-              I nostri filari crescono su terre argillose moreniche, esposte al primo sole del mattino. Ogni
-              filare racconta anni di cura, di mani che conoscono la vite come si conosce un vecchio amico
-              fidato.
+              I nostri filari crescono su terre argillose moreniche, esposte verso il primo sole del mattino –
+              un'esposizione che favorisce una maturazione lenta e uniforme delle uve.
             </p>
             <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-              È da qui che nascono la mineralità di Valens e Andreas e la struttura piena di Burtulì e
-              Rocolet. Coltiviamo solo le nostre vigne, su questa collina: niente uve acquistate, niente
-              scorciatoie.
+              Ogni filare è il risultato di anni di lavoro in vigna e di un'attenzione costante, stagione dopo
+              stagione, alle esigenze della pianta.
+            </p>
+            <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
+              È da qui che nascono la mineralità di Andreas e Valens e la struttura piena di Burtulì e Rocolet:
+              caratteristiche che riflettono direttamente la natura di questo terreno.
+            </p>
+            <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
+              Le uve arrivano tutte dai nostri vigneti su questa collina, e l'intero processo, dalla raccolta alla
+              vinificazione, si svolge a pochi metri di distanza, per preservare la qualità del frutto.
             </p>
           </Reveal>
           <Reveal delay={100}>
@@ -214,17 +234,6 @@ function GalleriaSection() {
             />
           ))}
         </div>
-      </div>
-
-      <div className="container-editorial mt-16">
-        <Reveal>
-          <p className="mx-auto max-w-2xl text-center font-serif text-2xl italic leading-relaxed text-muted-foreground">
-            “{citazioni.terra.testo}”
-            <span className="mt-3 block font-display text-[0.62rem] uppercase not-italic tracking-[0.3em]">
-              — {citazioni.terra.autore}
-            </span>
-          </p>
-        </Reveal>
       </div>
     </section>
   );
