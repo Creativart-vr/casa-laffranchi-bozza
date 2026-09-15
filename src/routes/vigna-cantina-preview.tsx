@@ -4,7 +4,6 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Photo } from "@/components/Photo";
 import { Reveal } from "@/components/Reveal";
 import { ButtonLink, SectionTitle } from "@/components/Ui";
-import { PageHero } from "@/components/PageHero";
 import { galleriaVigna, media } from "@/data/media";
 
 export const Route = createFileRoute("/vigna-cantina-preview")({
@@ -54,11 +53,27 @@ const fasi = [
 function VignaPreviewPage() {
   return (
     <>
-      <PageHero
-        eyebrow="Il processo"
-        title={<>Vigna &amp; Cantina</>}
-        intro="Dal terreno argilloso morenico alla bottiglia: ogni passaggio è seguito a mano, in azienda, dalla famiglia."
-      />
+      <section className="relative isolate overflow-hidden border-b border-line bg-ivory">
+        <div className="absolute inset-0 -z-10" aria-hidden="true">
+          <img
+            src="/images/vigna-cantina-hero-preview.jpg"
+            alt=""
+            className="h-full w-full object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-foreground/25" />
+        </div>
+        <div className="container-editorial py-20 text-center lg:py-28">
+          <Reveal>
+            <p className="eyebrow text-white">Il processo</p>
+            <h1 className="mx-auto mt-5 max-w-4xl text-[2.4rem] leading-[1.02] text-white sm:text-[3.4rem] lg:text-[4.4rem]">
+              Vigna &amp; Cantina
+            </h1>
+            <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-white">
+              Dal terreno argilloso morenico alla bottiglia: ogni passaggio è seguito a mano, in azienda, dalla famiglia.
+            </p>
+          </Reveal>
+        </div>
+      </section>
 
       <section className="editorial-vineyard-background vineyard-position-left section-y">
         <div className="container-editorial grid items-center gap-14 lg:grid-cols-2 lg:gap-24">
