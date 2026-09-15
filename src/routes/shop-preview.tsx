@@ -7,7 +7,7 @@ import { categories, categoryLabels, products } from "@/data/products";
 import { trustPoints } from "@/data/site";
 import { cn } from "@/lib/utils";
 
-export const Route = createFileRoute("/shop")({
+export const Route = createFileRoute("/shop-preview")({
   head: () => ({
     meta: [
       { title: "Shop online — Casa Laffranchi" },
