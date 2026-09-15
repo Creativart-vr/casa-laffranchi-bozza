@@ -16,6 +16,7 @@ import { Route as CheckoutRouteImport } from './routes/checkout'
 import { Route as ContattiRouteImport } from './routes/contatti'
 import { Route as ShopRouteImport } from './routes/shop'
 import { Route as VignaCantinaRouteImport } from './routes/vigna-cantina'
+import { Route as VignaCantinaPreviewRouteImport } from './routes/vigna-cantina-preview'
 import { Route as ViniIndexRouteImport } from './routes/vini.index'
 import { Route as ViniSlugRouteImport } from './routes/vini.$slug'
 
@@ -54,6 +55,11 @@ const VignaCantinaRoute = VignaCantinaRouteImport.update({
   path: '/vigna-cantina',
   getParentRoute: () => rootRouteImport,
 } as any)
+const VignaCantinaPreviewRoute = VignaCantinaPreviewRouteImport.update({
+  id: '/vigna-cantina-preview',
+  path: '/vigna-cantina-preview',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ViniIndexRoute = ViniIndexRouteImport.update({
   id: '/vini/',
   path: '/vini/',
@@ -73,6 +79,7 @@ export interface FileRoutesByFullPath {
   '/contatti': typeof ContattiRoute
   '/shop': typeof ShopRoute
   '/vigna-cantina': typeof VignaCantinaRoute
+  '/vigna-cantina-preview': typeof VignaCantinaPreviewRoute
   '/vini/$slug': typeof ViniSlugRoute
   '/vini/': typeof ViniIndexRoute
 }
@@ -84,6 +91,7 @@ export interface FileRoutesByTo {
   '/contatti': typeof ContattiRoute
   '/shop': typeof ShopRoute
   '/vigna-cantina': typeof VignaCantinaRoute
+  '/vigna-cantina-preview': typeof VignaCantinaPreviewRoute
   '/vini/$slug': typeof ViniSlugRoute
   '/vini': typeof ViniIndexRoute
 }
@@ -96,6 +104,7 @@ export interface FileRoutesById {
   '/contatti': typeof ContattiRoute
   '/shop': typeof ShopRoute
   '/vigna-cantina': typeof VignaCantinaRoute
+  '/vigna-cantina-preview': typeof VignaCantinaPreviewRoute
   '/vini/$slug': typeof ViniSlugRoute
   '/vini/': typeof ViniIndexRoute
 }
@@ -109,6 +118,7 @@ export interface FileRouteTypes {
     | '/contatti'
     | '/shop'
     | '/vigna-cantina'
+    | '/vigna-cantina-preview'
     | '/vini/$slug'
     | '/vini/'
   fileRoutesByTo: FileRoutesByTo
@@ -120,6 +130,7 @@ export interface FileRouteTypes {
     | '/contatti'
     | '/shop'
     | '/vigna-cantina'
+    | '/vigna-cantina-preview'
     | '/vini/$slug'
     | '/vini'
   id:
@@ -131,6 +142,7 @@ export interface FileRouteTypes {
     | '/contatti'
     | '/shop'
     | '/vigna-cantina'
+    | '/vigna-cantina-preview'
     | '/vini/$slug'
     | '/vini/'
   fileRoutesById: FileRoutesById
@@ -143,6 +155,7 @@ export interface RootRouteChildren {
   ContattiRoute: typeof ContattiRoute
   ShopRoute: typeof ShopRoute
   VignaCantinaRoute: typeof VignaCantinaRoute
+  VignaCantinaPreviewRoute: typeof VignaCantinaPreviewRoute
   ViniSlugRoute: typeof ViniSlugRoute
   ViniIndexRoute: typeof ViniIndexRoute
 }
@@ -198,6 +211,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof VignaCantinaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/vigna-cantina-preview': {
+      id: '/vigna-cantina-preview'
+      path: '/vigna-cantina-preview'
+      fullPath: '/vigna-cantina-preview'
+      preLoaderRoute: typeof VignaCantinaPreviewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/vini/': {
       id: '/vini/'
       path: '/vini'
@@ -223,6 +243,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContattiRoute: ContattiRoute,
   ShopRoute: ShopRoute,
   VignaCantinaRoute: VignaCantinaRoute,
+  VignaCantinaPreviewRoute: VignaCantinaPreviewRoute,
   ViniSlugRoute: ViniSlugRoute,
   ViniIndexRoute: ViniIndexRoute,
 }
