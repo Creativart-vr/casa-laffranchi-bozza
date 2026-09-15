@@ -4,7 +4,7 @@ import { Reveal } from "@/components/Reveal";
 import { ButtonLink, SectionTitle } from "@/components/Ui";
 import { ProductCard } from "@/components/ProductCard";
 import { products } from "@/data/products";
-import { citazioni, site, trustPoints, valori } from "@/data/site";
+import { site, trustPoints, valori } from "@/data/site";
 import { logoUfficiale, media } from "@/data/media";
 
 export const Route = createFileRoute("/home-preview")({
