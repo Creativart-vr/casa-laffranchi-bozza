@@ -76,18 +76,19 @@ function HomePreview() {
           </ul>
         </nav>
 
-        <div className="absolute bottom-[calc(env(safe-area-inset-bottom)+1.25rem)] right-5 flex items-end gap-8 sm:bottom-[calc(env(safe-area-inset-bottom)+2rem)] sm:right-8 lg:right-12">
+        <div className="absolute right-5 top-[calc(env(safe-area-inset-top)+1.5rem)] sm:right-8 lg:right-12">
           <Link
             to="/shop"
             className="link-underline font-display text-[0.72rem] uppercase tracking-[0.3em] text-white focus-visible:outline-white"
           >
             Shop
           </Link>
-          <div className="flex flex-col items-end gap-1 font-display text-[0.64rem] uppercase tracking-[0.24em] text-white" aria-label="Selezione lingua">
-            <span aria-current="true">ITA</span>
-            <span className="cursor-not-allowed opacity-55" aria-disabled="true">ENG</span>
-            <span className="cursor-not-allowed opacity-55" aria-disabled="true">DEU</span>
-          </div>
+        </div>
+
+        <div className="absolute bottom-[calc(env(safe-area-inset-bottom)+1.25rem)] right-5 flex flex-col items-end gap-1 font-display text-[0.64rem] uppercase tracking-[0.24em] text-white sm:bottom-[calc(env(safe-area-inset-bottom)+2rem)] sm:right-8 lg:right-12" aria-label="Selezione lingua">
+          <span aria-current="true">ITA</span>
+          <span className="cursor-not-allowed opacity-55" aria-disabled="true">ENG</span>
+          <span className="cursor-not-allowed opacity-55" aria-disabled="true">DEU</span>
         </div>
       </section>
 
