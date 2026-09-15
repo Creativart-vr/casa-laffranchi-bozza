@@ -30,6 +30,13 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
+const heroNavigation = [
+  { label: "Casa Laffranchi", to: "/casa-laffranchi" as const },
+  { label: "Vigna & Cantina", to: "/vigna-cantina" as const },
+  { label: "I nostri vini", to: "/vini" as const },
+  { label: "Contatti", to: "/contatti" as const },
+];
+
 function Home() {
   const selezione = products.filter((p) =>
     ["valens", "caelestis", "andreas", "burtuli"].includes(p.slug),
@@ -53,6 +60,7 @@ function Home() {
           <source src="/video/home-casa-laffranchi.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 -z-10 bg-foreground/40" aria-hidden="true" />
+        <h1 className="sr-only">Casa Laffranchi — Vino pregiato dei colli di Castenedolo</h1>
 
         <div className="absolute inset-0 flex items-center justify-center px-8 pb-24 sm:pb-20">
           <img

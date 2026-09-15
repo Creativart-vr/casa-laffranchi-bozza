@@ -10,4 +10,4 @@
 - [x] Introdurre background editoriale vigneto nelle sezioni istituzionali e verificarne il build
 - [x] Applicare la nuova testata fotografica approvata alla pagina /vini
 - [x] Mostrare l’anteprima separata della testata fotografica Shop e attendere approvazione
-- [ ] Mostrare l’anteprima separata della nuova hero video homepage e attendere approvazione
+- [x] Mostrare l’anteprima separata della nuova hero video homepage e attendere approvazione

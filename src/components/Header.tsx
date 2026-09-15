@@ -15,7 +15,7 @@ export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const { count } = useCart();
   const pathname = useRouterState({ select: (s) => s.location.pathname });
-  const isHomePreview = pathname === "/home-preview";
+  const isHomePreview = pathname === "/";
 
   useEffect(() => {
     const onScroll = () => {
