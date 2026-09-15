@@ -9,3 +9,4 @@
 
 - [x] Introdurre background editoriale vigneto nelle sezioni istituzionali e verificarne il build
 - [x] Applicare la nuova testata fotografica approvata alla pagina /vini
+- [ ] Mostrare l’anteprima separata della testata fotografica Shop e attendere approvazione
