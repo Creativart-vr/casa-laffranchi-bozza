@@ -14,7 +14,6 @@ import { Route as CarrelloRouteImport } from './routes/carrello'
 import { Route as CasaLaffranchiRouteImport } from './routes/casa-laffranchi'
 import { Route as CheckoutRouteImport } from './routes/checkout'
 import { Route as ContattiRouteImport } from './routes/contatti'
-import { Route as HomePreviewRouteImport } from './routes/home-preview'
 import { Route as ShopRouteImport } from './routes/shop'
 import { Route as VignaCantinaRouteImport } from './routes/vigna-cantina'
 import { Route as ViniIndexRouteImport } from './routes/vini.index'
@@ -45,11 +44,6 @@ const ContattiRoute = ContattiRouteImport.update({
   path: '/contatti',
   getParentRoute: () => rootRouteImport,
 } as any)
-const HomePreviewRoute = HomePreviewRouteImport.update({
-  id: '/home-preview',
-  path: '/home-preview',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ShopRoute = ShopRouteImport.update({
   id: '/shop',
   path: '/shop',
@@ -77,7 +71,6 @@ export interface FileRoutesByFullPath {
   '/casa-laffranchi': typeof CasaLaffranchiRoute
   '/checkout': typeof CheckoutRoute
   '/contatti': typeof ContattiRoute
-  '/home-preview': typeof HomePreviewRoute
   '/shop': typeof ShopRoute
   '/vigna-cantina': typeof VignaCantinaRoute
   '/vini/$slug': typeof ViniSlugRoute
@@ -89,7 +82,6 @@ export interface FileRoutesByTo {
   '/casa-laffranchi': typeof CasaLaffranchiRoute
   '/checkout': typeof CheckoutRoute
   '/contatti': typeof ContattiRoute
-  '/home-preview': typeof HomePreviewRoute
   '/shop': typeof ShopRoute
   '/vigna-cantina': typeof VignaCantinaRoute
   '/vini/$slug': typeof ViniSlugRoute
@@ -102,7 +94,6 @@ export interface FileRoutesById {
   '/casa-laffranchi': typeof CasaLaffranchiRoute
   '/checkout': typeof CheckoutRoute
   '/contatti': typeof ContattiRoute
-  '/home-preview': typeof HomePreviewRoute
   '/shop': typeof ShopRoute
   '/vigna-cantina': typeof VignaCantinaRoute
   '/vini/$slug': typeof ViniSlugRoute
@@ -116,7 +107,6 @@ export interface FileRouteTypes {
     | '/casa-laffranchi'
     | '/checkout'
     | '/contatti'
-    | '/home-preview'
     | '/shop'
     | '/vigna-cantina'
     | '/vini/$slug'
@@ -128,7 +118,6 @@ export interface FileRouteTypes {
     | '/casa-laffranchi'
     | '/checkout'
     | '/contatti'
-    | '/home-preview'
     | '/shop'
     | '/vigna-cantina'
     | '/vini/$slug'
@@ -140,7 +129,6 @@ export interface FileRouteTypes {
     | '/casa-laffranchi'
     | '/checkout'
     | '/contatti'
-    | '/home-preview'
     | '/shop'
     | '/vigna-cantina'
     | '/vini/$slug'
@@ -153,7 +141,6 @@ export interface RootRouteChildren {
   CasaLaffranchiRoute: typeof CasaLaffranchiRoute
   CheckoutRoute: typeof CheckoutRoute
   ContattiRoute: typeof ContattiRoute
-  HomePreviewRoute: typeof HomePreviewRoute
   ShopRoute: typeof ShopRoute
   VignaCantinaRoute: typeof VignaCantinaRoute
   ViniSlugRoute: typeof ViniSlugRoute
@@ -197,13 +184,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContattiRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/home-preview': {
-      id: '/home-preview'
-      path: '/home-preview'
-      fullPath: '/home-preview'
-      preLoaderRoute: typeof HomePreviewRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/shop': {
       id: '/shop'
       path: '/shop'
@@ -241,7 +221,6 @@ const rootRouteChildren: RootRouteChildren = {
   CasaLaffranchiRoute: CasaLaffranchiRoute,
   CheckoutRoute: CheckoutRoute,
   ContattiRoute: ContattiRoute,
-  HomePreviewRoute: HomePreviewRoute,
   ShopRoute: ShopRoute,
   VignaCantinaRoute: VignaCantinaRoute,
   ViniSlugRoute: ViniSlugRoute,
