@@ -8,3 +8,4 @@
 - [x] Logo aziendale in header/footer + favicon
 
 - [x] Introdurre background editoriale vigneto nelle sezioni istituzionali e verificarne il build
+- [x] Preparare anteprima separata della nuova testata fotografica per /vini
