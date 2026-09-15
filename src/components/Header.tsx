@@ -10,16 +10,25 @@ import { logoUfficiale } from "@/data/media";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
+  const [previewHeroPassed, setPreviewHeroPassed] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const { count } = useCart();
   const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const isHomePreview = pathname === "/home-preview";
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 20);
+      setPreviewHeroPassed(window.scrollY >= window.innerHeight - 1);
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
   }, []);
 
   useEffect(() => {
@@ -35,6 +44,9 @@ export function Header() {
         className={cn(
           "sticky top-0 z-50 w-full border-b transition-all duration-500",
           scrolled ? "border-line bg-background/95 backdrop-blur-sm" : "border-transparent bg-background",
+          isHomePreview && "fixed left-0 transition-[opacity,transform,background-color,border-color]",
+          isHomePreview && !previewHeroPassed && "pointer-events-none -translate-y-full opacity-0",
+          isHomePreview && previewHeroPassed && "translate-y-0 opacity-100",
         )}
       >
         <div className="container-editorial">
