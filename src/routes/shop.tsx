@@ -54,11 +54,27 @@ function ShopPage() {
 
   return (
     <>
-      <PageHero
-        eyebrow="Shop"
-        title={<>Acquista online</>}
-        intro="Le nostre bottiglie, spedite direttamente dalla cantina."
-      />
+      <section className="relative isolate overflow-hidden border-b border-line bg-ivory">
+        <div className="absolute inset-0 -z-10" aria-hidden="true">
+          <img
+            src="/images/header-shop-casa-laffranchi.jpg"
+            alt=""
+            className="h-full w-full object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-foreground/50" />
+        </div>
+        <div className="container-editorial py-20 text-center lg:py-28">
+          <Reveal>
+            <p className="eyebrow text-white">Shop</p>
+            <h1 className="mx-auto mt-5 max-w-4xl text-[2.4rem] leading-[1.02] text-white sm:text-[3.4rem] lg:text-[4.4rem]">
+              Acquista online
+            </h1>
+            <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-white">
+              Le nostre bottiglie, spedite direttamente dalla cantina.
+            </p>
+          </Reveal>
+        </div>
+      </section>
 
       <section className="section-y">
         <div className="container-editorial">
