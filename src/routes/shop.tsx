@@ -2,7 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { Reveal } from "@/components/Reveal";
 import { ProductCard } from "@/components/ProductCard";
-import { PageHero } from "@/components/PageHero";
 import { categories, categoryLabels, products } from "@/data/products";
 import { trustPoints } from "@/data/site";
 import { cn } from "@/lib/utils";
