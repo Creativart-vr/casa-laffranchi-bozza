@@ -2,8 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Photo } from "@/components/Photo";
 import { Reveal } from "@/components/Reveal";
 import { ButtonLink, SectionTitle } from "@/components/Ui";
-import { PageHero } from "@/components/PageHero";
-import { citazioni, site, valori } from "@/data/site";
+import { valori } from "@/data/site";
 import { media } from "@/data/media";
 
 export const Route = createFileRoute("/casa-laffranchi-preview")({
@@ -19,12 +18,23 @@ export const Route = createFileRoute("/casa-laffranchi-preview")({
 function CasaPreviewPage() {
   return (
     <>
-      <PageHero
-        eyebrow="Chi siamo"
-        title={<>La nostra storia</>}
-        intro="Tutto comincia da una famiglia e da una collina di Castenedolo."
-        backgroundImage={media.casaHero}
-      />
+      <section className="relative isolate overflow-hidden border-b border-line bg-ivory">
+        <div className="absolute inset-0 -z-10" aria-hidden="true">
+          <img src={media.casaHero} alt="" className="h-full w-full object-cover object-center" />
+          <div className="absolute inset-0 bg-foreground/25" />
+        </div>
+        <div className="container-editorial py-20 text-center lg:py-28">
+          <Reveal>
+            <p className="eyebrow text-white">Chi siamo</p>
+            <h1 className="mx-auto mt-5 max-w-4xl text-[2.4rem] leading-[1.02] text-white sm:text-[3.4rem] lg:text-[4.4rem]">
+              La nostra storia
+            </h1>
+            <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-white">
+              Tutto comincia da una famiglia e da una collina di Castenedolo.
+            </p>
+          </Reveal>
+        </div>
+      </section>
 
       <section className="editorial-vineyard-background vineyard-position-right section-y">
         <div className="container-editorial grid items-center gap-14 lg:grid-cols-2 lg:gap-24">
@@ -102,33 +112,8 @@ function CasaPreviewPage() {
               La produzione resta volutamente piccola: ogni bottiglia passa dalle nostre mani, dal filare
               alla cantina.
             </p>
-            <p className="mt-5 font-serif text-2xl italic leading-relaxed text-muted-foreground">
-              “{citazioni.terra.testo}”
-            </p>
-            <p className="mt-3 font-display text-[0.62rem] uppercase tracking-[0.3em] text-muted-foreground">
-              — {citazioni.terra.autore}
-            </p>
             <div className="mt-10">
               <ButtonLink to="/vigna-cantina">Vigna &amp; Cantina</ButtonLink>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      <section className="bg-green">
-        <div className="container-editorial py-24 text-center lg:py-32">
-          <Reveal>
-            <p className="eyebrow text-white/70">Il nostro invito</p>
-            <h2 className="mx-auto mt-5 max-w-3xl text-[2rem] text-white sm:text-[2.8rem]">
-              Il vino si capisce davvero solo dove nasce
-            </h2>
-            <p className="mt-8 font-serif text-xl italic text-white/70">
-              {site.address.street} — {site.address.city}
-            </p>
-            <div className="mt-10 flex justify-center">
-              <ButtonLink to="/contatti" variant="onDark">
-                Vieni a trovarci
-              </ButtonLink>
             </div>
           </Reveal>
         </div>
