@@ -2,7 +2,6 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useCallback, useEffect, useState, type ReactElement } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
-import { PageHero } from "@/components/PageHero";
 import { ButtonLink } from "@/components/Ui";
 import { products, type Product } from "@/data/products";
 import { media } from "@/data/media";
@@ -86,7 +85,8 @@ function WineSlider({ items }: { items: Product[] }) {
     return () => window.clearInterval(id);
   }, [total]);
 
-  const p = items[index]!;
+  const p = items[index] ?? items[0];
+  if (!p) return null;
 
   return (
     <section aria-label="Le etichette in evidenza" className="relative overflow-hidden bg-cream">
@@ -174,11 +174,27 @@ function ViniPage() {
 
   return (
     <>
-      <PageHero
-        eyebrow="La carta"
-        title={<>I nostri vini</>}
-        intro="Una sola collina, nove etichette. Dalla vigna di Castenedolo alla bottiglia."
-      />
+      <section className="relative isolate flex min-h-[360px] items-center overflow-hidden border-b border-line bg-foreground lg:min-h-[440px]">
+        <div className="absolute inset-0 -z-10" aria-hidden="true">
+          <img
+            src="/images/header-vini-casa-laffranchi.jpg"
+            alt=""
+            className="h-full w-full object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-foreground/50" />
+        </div>
+        <div className="container-editorial py-20 text-center lg:py-28">
+          <Reveal>
+            <p className="eyebrow text-white">La carta</p>
+            <h1 className="mx-auto mt-5 max-w-4xl text-[2.4rem] leading-[1.02] text-white sm:text-[3.4rem] lg:text-[4.4rem]">
+              I nostri vini
+            </h1>
+            <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-white">
+              Ogni etichetta nasce dalle stesse vigne di famiglia, le cui uve vengono raccolte al momento giusto e vinificate in cantina con tempi lunghi. Produciamo in quantità contenute, dedicando cura a ogni fase della lavorazione.
+            </p>
+          </Reveal>
+        </div>
+      </section>
 
       {/* Carosello delle etichette */}
       <WineSlider items={carta.filter((p) => p.immagine)} />
