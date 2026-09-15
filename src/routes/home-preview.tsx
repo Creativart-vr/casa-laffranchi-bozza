@@ -36,7 +36,6 @@ function HomePreview() {
       <section className="relative isolate h-[100svh] min-h-screen w-full overflow-hidden bg-foreground">
         <video
           className="absolute inset-0 -z-20 h-full w-full object-cover object-center"
-          src="/video/home-casa-laffranchi.mp4"
           autoPlay
           muted
           loop
@@ -44,7 +43,10 @@ function HomePreview() {
           preload="metadata"
           aria-hidden="true"
           tabIndex={-1}
-        />
+        >
+          <source src="/video/home-casa-laffranchi.webm" type="video/webm" />
+          <source src="/video/home-casa-laffranchi.mp4" type="video/mp4" />
+        </video>
         <div className="absolute inset-0 -z-10 bg-foreground/20" aria-hidden="true" />
 
         <div className="absolute inset-0 flex items-center justify-center px-8 pb-24 sm:pb-20">
