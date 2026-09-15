@@ -60,7 +60,7 @@ function VignaPreviewPage() {
             alt=""
             className="h-full w-full object-cover object-center"
           />
-          <div className="absolute inset-0 bg-foreground/25" />
+          <div className="absolute inset-0 bg-foreground/50" />
         </div>
         <div className="container-editorial py-20 text-center lg:py-28">
           <Reveal>
