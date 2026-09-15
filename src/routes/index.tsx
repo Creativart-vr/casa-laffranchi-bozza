@@ -4,8 +4,8 @@ import { Reveal } from "@/components/Reveal";
 import { ButtonLink, SectionTitle } from "@/components/Ui";
 import { ProductCard } from "@/components/ProductCard";
 import { products } from "@/data/products";
-import { citazioni, site, trustPoints, valori } from "@/data/site";
-import { media } from "@/data/media";
+import { site, trustPoints, valori } from "@/data/site";
+import { logoUfficiale, media } from "@/data/media";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -37,56 +37,62 @@ function Home() {
 
   return (
     <>
-      {/* HERO */}
-      <section className="editorial-vineyard-background vineyard-position-center relative">
-        <div className="container-editorial pt-10 lg:pt-16">
-          <div className="relative">
-            <Photo
-              label="Vigneto Casa Laffranchi sui colli di Castenedolo"
-              ratio="16/9"
-              tone="ivory"
-              zoom={false}
-              src={media.heroVigneto}
-              position="center center"
-              className="hidden md:block"
-            />
-            <Photo
-              label="Vigneto Casa Laffranchi"
-              ratio="4/5"
-              tone="ivory"
-              zoom={false}
-              src={media.heroVigneto}
-              position="55% center"
-              className="md:hidden"
-            />
-            <div className="pointer-events-none absolute inset-0 bg-green/25" aria-hidden="true" />
-            <div className="pointer-events-none absolute inset-0 flex items-center justify-center px-6">
-              <div className="max-w-3xl text-center">
-                <Reveal>
-                  <p className="eyebrow text-white/80">Castenedolo (BS)</p>
-                  <h1 className="mt-5 text-[2.4rem] leading-[1.02] text-white sm:text-[3.6rem] lg:text-[5rem]">
-                    Vino pregiato
-                    <br />
-                    dei colli di Castenedolo
-                  </h1>
-                </Reveal>
-              </div>
-            </div>
-          </div>
-          <Reveal delay={120} className="mt-10 flex flex-col items-center gap-6 sm:flex-row sm:justify-center">
-            <ButtonLink to="/vini">Scopri i vini</ButtonLink>
-            <ButtonLink to="/shop" variant="light">
-              Acquista online
-            </ButtonLink>
-          </Reveal>
-          <Reveal delay={180}>
-            <p className="mx-auto mt-14 max-w-2xl text-center font-serif text-xl italic leading-relaxed text-muted-foreground">
-              “{citazioni.galilei.testo}”
-              <span className="mt-3 block font-display text-[0.62rem] uppercase not-italic tracking-[0.3em]">
-                — {citazioni.galilei.autore}
-              </span>
-            </p>
-          </Reveal>
+      {/* HERO VIDEO */}
+      <section className="relative isolate h-[100svh] min-h-screen w-full overflow-hidden bg-foreground">
+        <video
+          className="absolute inset-0 -z-20 h-full w-full object-cover object-center"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-hidden="true"
+          tabIndex={-1}
+        >
+          <source src="/video/home-casa-laffranchi.webm" type="video/webm" />
+          <source src="/video/home-casa-laffranchi.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 -z-10 bg-foreground/40" aria-hidden="true" />
+
+        <div className="absolute inset-0 flex items-center justify-center px-8 pb-24 sm:pb-20">
+          <img
+            src={logoUfficiale}
+            alt="Casa Laffranchi"
+            className="h-auto w-[min(72vw,340px)] object-contain sm:w-[min(48vw,420px)]"
+          />
+        </div>
+
+        <nav
+          aria-label="Navigazione principale della homepage"
+          className="absolute inset-x-5 bottom-[calc(env(safe-area-inset-bottom)+7.5rem)] sm:inset-x-8 sm:bottom-[calc(env(safe-area-inset-bottom)+3rem)]"
+        >
+          <ul className="flex flex-col items-center justify-center gap-2 sm:flex-row sm:gap-6 lg:gap-12">
+            {heroNavigation.map((item) => (
+              <li key={item.to}>
+                <Link
+                  to={item.to}
+                  className="link-underline font-display text-[0.95rem] uppercase tracking-[0.24em] text-white focus-visible:outline-white lg:tracking-[0.3em]"
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <div className="absolute right-5 top-[calc(env(safe-area-inset-top)+1.5rem)] sm:right-8 lg:right-12">
+          <Link
+            to="/shop"
+            className="link-underline font-display text-[0.95rem] uppercase tracking-[0.3em] text-white focus-visible:outline-white"
+          >
+            Shop
+          </Link>
+        </div>
+
+        <div className="absolute bottom-[calc(env(safe-area-inset-bottom)+1.25rem)] right-5 flex flex-col items-end gap-1 font-display text-[0.8rem] uppercase tracking-[0.24em] text-white sm:bottom-[calc(env(safe-area-inset-bottom)+2rem)] sm:right-8 lg:right-12" aria-label="Selezione lingua">
+          <span aria-current="true">ITA</span>
+          <span className="cursor-not-allowed opacity-55" aria-disabled="true">ENG</span>
+          <span className="cursor-not-allowed opacity-55" aria-disabled="true">DEU</span>
         </div>
       </section>
 
