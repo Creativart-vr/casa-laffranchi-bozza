@@ -30,6 +30,13 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
+const heroNavigation = [
+  { label: "Casa Laffranchi", to: "/casa-laffranchi" as const },
+  { label: "Vigna & Cantina", to: "/vigna-cantina" as const },
+  { label: "I nostri vini", to: "/vini" as const },
+  { label: "Contatti", to: "/contatti" as const },
+];
+
 function Home() {
   const selezione = products.filter((p) =>
     ["valens", "caelestis", "andreas", "burtuli"].includes(p.slug),
