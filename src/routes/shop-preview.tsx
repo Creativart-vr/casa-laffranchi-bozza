@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { Reveal } from "@/components/Reveal";
-import { ProductCard } from "@/components/ProductCard";
+import { ProductCardPreview } from "@/components/ProductCardPreview";
 import { categories, categoryLabels } from "@/data/products";
 import { previewFormati, previewProducts } from "@/data/products-preview";
 import { trustPoints } from "@/data/site";
