@@ -152,23 +152,29 @@ function VinoPage() {
       <section className="section-y">
         <div className="container-editorial grid gap-14 lg:grid-cols-[1fr_1.1fr] lg:gap-24">
           <Reveal>
-            <SectionTitle align="left" title="Scheda tecnica" subtitle="Il vino in dettaglio" />
+            <SectionTitle align="left" title="Scheda tecnica" subtitle="Il prodotto in dettaglio" />
+            {product.technicalSheetPdf && (
+              <div className="mt-10">
+                <ExternalButtonLink href={product.technicalSheetPdf} variant="green">
+                  Visualizza scheda tecnica
+                </ExternalButtonLink>
+              </div>
+            )}
           </Reveal>
           <Reveal delay={100}>
             <dl className="border-t border-line">
-              <Spec label="Vitigno" value={product.vitigno} />
-              <Spec label="Base" value={product.base} />
-              <Spec label="Varianti" value={product.varianti?.join(" · ")} />
+              <Spec label="Vitigni" value={product.vitigno} />
+              <Spec label="Varietà" value={product.varieta} />
               <Spec label="Metodo" value={product.metodo} />
               <Spec label="Origine" value={product.origine} />
               <Spec label="Colore" value={product.colore} />
               <Spec label="Profumo" value={product.profumo} />
               <Spec label="Gusto" value={product.gusto} />
+              <Spec label="Gastronomia" value={product.gastronomia} />
               <Spec label="Gradazione" value={product.gradazione} />
               <Spec label="Vendemmia" value={product.vendemmia} />
-              <Spec label="Gastronomia" value={product.gastronomia} />
-              <Spec label="Servizio" value={product.temperatura ?? product.servizio} />
-              <Spec label="Occasione" value={product.occasione} />
+              <Spec label="Temperatura di servizio" value={product.temperatura} />
+              <Spec label="Servizio" value={product.servizio} />
               <Spec label="Formato" value={product.formato} />
             </dl>
           </Reveal>
