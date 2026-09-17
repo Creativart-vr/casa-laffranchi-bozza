@@ -11,4 +11,4 @@
 - [x] Applicare la nuova testata fotografica approvata alla pagina /vini
 - [x] Mostrare l’anteprima separata della testata fotografica Shop e attendere approvazione
 - [x] Mostrare l’anteprima separata della nuova hero video homepage e attendere approvazione
-- [ ] Mostrare le anteprime delle schede tecniche prodotto della Fase 4 e attendere approvazione finale
+- [x] Fase 4 approvata e applicata live: schede tecniche, disponibilità, PDF ufficiali, dati centralizzati
