@@ -2,7 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useState } from "react";
 import { Photo } from "@/components/Photo";
 import { Reveal } from "@/components/Reveal";
-import { ActionButton, ButtonLink, SectionTitle } from "@/components/Ui";
+import { ActionButton, ButtonLink, ExternalButtonLink, SectionTitle } from "@/components/Ui";
 import { ProductCard } from "@/components/ProductCard";
 import { formatPrice, getProduct, relatedProducts, type Product } from "@/data/products";
 import { useCart } from "@/lib/cart";
@@ -50,6 +50,8 @@ function VinoPage() {
   const [qty, setQty] = useState(1);
   const [added, setAdded] = useState(false);
   const correlati = relatedProducts(product.slug);
+  const esaurito = product.disponibilita === "esaurito";
+  const limitata = product.disponibilita === "limitata";
 
   return (
     <>
@@ -86,10 +88,21 @@ function VinoPage() {
                 Formato {product.formato}
               </p>
 
+              {(esaurito || limitata) && (
+                <p
+                  className={`mt-6 w-fit border border-line px-4 py-2 font-display text-[0.62rem] uppercase tracking-[0.3em] ${
+                    esaurito ? "text-muted-foreground" : "text-green"
+                  }`}
+                >
+                  {esaurito ? "Esaurito" : "Disponibilità limitata"}
+                </p>
+              )}
+
               <div className="mt-10 flex flex-wrap items-stretch gap-4">
-                <div className="flex items-center border border-line">
+                <div className={`flex items-center border border-line ${esaurito ? "opacity-45" : ""}`}>
                   <button
                     onClick={() => setQty((q) => Math.max(1, q - 1))}
+                    disabled={esaurito}
                     aria-label="Diminuisci quantità"
                     className="px-5 py-4 font-display text-green"
                   >
@@ -100,22 +113,32 @@ function VinoPage() {
                   </span>
                   <button
                     onClick={() => setQty((q) => q + 1)}
+                    disabled={esaurito}
                     aria-label="Aumenta quantità"
                     className="px-5 py-4 font-display text-green"
                   >
                     +
                   </button>
                 </div>
-                <ActionButton
-                  variant="solid"
-                  onClick={() => {
-                    add(product.slug, qty);
-                    setAdded(true);
-                    setTimeout(() => setAdded(false), 2200);
-                  }}
-                >
-                  {added ? "Aggiunto ✓" : "Aggiungi al carrello"}
-                </ActionButton>
+                {esaurito ? (
+                  <span
+                    aria-disabled="true"
+                    className="inline-flex items-center border border-line px-8 font-display text-[0.68rem] uppercase tracking-[0.28em] text-muted-foreground/60"
+                  >
+                    Aggiungi al carrello
+                  </span>
+                ) : (
+                  <ActionButton
+                    variant="solid"
+                    onClick={() => {
+                      add(product.slug, qty);
+                      setAdded(true);
+                      setTimeout(() => setAdded(false), 2200);
+                    }}
+                  >
+                    {added ? "Aggiunto ✓" : "Aggiungi al carrello"}
+                  </ActionButton>
+                )}
               </div>
 
               <p className="mt-6 text-sm leading-relaxed text-muted-foreground">
@@ -129,23 +152,29 @@ function VinoPage() {
       <section className="section-y">
         <div className="container-editorial grid gap-14 lg:grid-cols-[1fr_1.1fr] lg:gap-24">
           <Reveal>
-            <SectionTitle align="left" title="Scheda tecnica" subtitle="Il vino in dettaglio" />
+            <SectionTitle align="left" title="Scheda tecnica" subtitle="Il prodotto in dettaglio" />
+            {product.technicalSheetPdf && (
+              <div className="mt-10">
+                <ExternalButtonLink href={product.technicalSheetPdf} variant="green">
+                  Visualizza scheda tecnica
+                </ExternalButtonLink>
+              </div>
+            )}
           </Reveal>
           <Reveal delay={100}>
             <dl className="border-t border-line">
-              <Spec label="Vitigno" value={product.vitigno} />
-              <Spec label="Base" value={product.base} />
-              <Spec label="Varianti" value={product.varianti?.join(" · ")} />
+              <Spec label="Vitigni" value={product.vitigno} />
+              <Spec label="Varietà" value={product.varieta} />
               <Spec label="Metodo" value={product.metodo} />
               <Spec label="Origine" value={product.origine} />
               <Spec label="Colore" value={product.colore} />
               <Spec label="Profumo" value={product.profumo} />
               <Spec label="Gusto" value={product.gusto} />
+              <Spec label="Gastronomia" value={product.gastronomia} />
               <Spec label="Gradazione" value={product.gradazione} />
               <Spec label="Vendemmia" value={product.vendemmia} />
-              <Spec label="Gastronomia" value={product.gastronomia} />
-              <Spec label="Servizio" value={product.temperatura ?? product.servizio} />
-              <Spec label="Occasione" value={product.occasione} />
+              <Spec label="Temperatura di servizio" value={product.temperatura} />
+              <Spec label="Servizio" value={product.servizio} />
               <Spec label="Formato" value={product.formato} />
             </dl>
           </Reveal>

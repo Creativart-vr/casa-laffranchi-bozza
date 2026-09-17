@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { Reveal } from "@/components/Reveal";
 import { ProductCard } from "@/components/ProductCard";
-import { categories, categoryLabels, products } from "@/data/products";
+import { categories, categoryLabels, formati, products } from "@/data/products";
 import { trustPoints } from "@/data/site";
 import { cn } from "@/lib/utils";
 
@@ -27,7 +27,7 @@ export const Route = createFileRoute("/shop")({
   component: ShopPage,
 });
 
-const formati = ["Tutti", "50 cl", "75 cl", "1,5 L"] as const;
+
 const ordinamenti = [
   { id: "default", label: "Ordine predefinito" },
   { id: "prezzo-asc", label: "Prezzo crescente" },

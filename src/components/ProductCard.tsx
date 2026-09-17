@@ -5,6 +5,8 @@ import { Photo } from "./Photo";
 
 export function ProductCard({ product, showAdd = true }: { product: Product; showAdd?: boolean }) {
   const { add } = useCart();
+  const esaurito = product.disponibilita === "esaurito";
+  const limitata = product.disponibilita === "limitata";
 
   return (
     <article className="group flex h-full flex-col">
@@ -30,14 +32,35 @@ export function ProductCard({ product, showAdd = true }: { product: Product; sho
         <p className="mt-4 font-display text-base tracking-[0.16em] text-green">
           {formatPrice(product.prezzo)} <span className="text-muted-foreground">· {product.formatoFiltro}</span>
         </p>
+
+        {(esaurito || limitata) && (
+          <p
+            className={[
+              "mx-auto mt-5 border border-line px-4 py-2 font-display text-[0.62rem] uppercase tracking-[0.3em]",
+              esaurito ? "text-muted-foreground" : "text-green",
+            ].join(" ")}
+          >
+            {esaurito ? "Esaurito" : "Disponibilità limitata"}
+          </p>
+        )}
+
         {showAdd && (
           <div className="mt-5 flex justify-center">
-            <button
-              onClick={() => add(product.slug)}
-              className="border border-line px-6 py-3 font-display text-[0.65rem] uppercase tracking-[0.3em] text-green transition-colors duration-500 hover:bg-green hover:text-white"
-            >
-              Aggiungi al carrello
-            </button>
+            {esaurito ? (
+              <span
+                aria-disabled="true"
+                className="border border-line px-6 py-3 font-display text-[0.65rem] uppercase tracking-[0.3em] text-muted-foreground/60"
+              >
+                Aggiungi al carrello
+              </span>
+            ) : (
+              <button
+                onClick={() => add(product.slug)}
+                className="border border-line px-6 py-3 font-display text-[0.65rem] uppercase tracking-[0.3em] text-green transition-colors duration-500 hover:bg-green hover:text-white"
+              >
+                Aggiungi al carrello
+              </button>
+            )}
           </div>
         )}
       </div>
