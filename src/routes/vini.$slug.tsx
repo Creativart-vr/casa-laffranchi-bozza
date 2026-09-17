@@ -2,7 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useState } from "react";
 import { Photo } from "@/components/Photo";
 import { Reveal } from "@/components/Reveal";
-import { ActionButton, ButtonLink, SectionTitle } from "@/components/Ui";
+import { ActionButton, ButtonLink, ExternalButtonLink, SectionTitle } from "@/components/Ui";
 import { ProductCard } from "@/components/ProductCard";
 import { formatPrice, getProduct, relatedProducts, type Product } from "@/data/products";
 import { useCart } from "@/lib/cart";
@@ -50,6 +50,8 @@ function VinoPage() {
   const [qty, setQty] = useState(1);
   const [added, setAdded] = useState(false);
   const correlati = relatedProducts(product.slug);
+  const esaurito = product.disponibilita === "esaurito";
+  const limitata = product.disponibilita === "limitata";
 
   return (
     <>
