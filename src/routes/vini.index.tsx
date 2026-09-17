@@ -90,7 +90,7 @@ function WineSlider({ items }: { items: Product[] }) {
 
   return (
     <section aria-label="Le etichette in evidenza" className="relative overflow-hidden bg-cream">
-      <div className="container-editorial relative grid items-center gap-10 py-16 lg:grid-cols-2 lg:gap-20 lg:py-24">
+      <div className="container-editorial relative grid items-center gap-10 py-16 md:px-24 lg:grid-cols-2 lg:gap-20 lg:px-28 lg:py-24 xl:px-32">
         {/* Testo */}
         <div key={p.slug} className="slide-in max-w-xl">
           <p className="eyebrow">{p.categoria}</p>
@@ -107,13 +107,6 @@ function WineSlider({ items }: { items: Product[] }) {
             >
               Scopri di più
             </LinkAny>
-            <LinkAny
-              to="/vini/$slug"
-              params={{ slug: p.slug }}
-              className="inline-block bg-green px-7 py-3 font-display text-[0.85rem] uppercase tracking-[0.22em] text-white transition-opacity duration-500 hover:opacity-80"
-            >
-              Scheda tecnica
-            </LinkAny>
             <span className="font-serif text-[1.05rem] italic text-green">{euro(p.prezzo)}</span>
           </div>
         </div>
@@ -128,12 +121,12 @@ function WineSlider({ items }: { items: Product[] }) {
           />
         </div>
 
-        {/* Frecce laterali */}
+        {/* Frecce laterali, fuori dalle aree di testo e immagine */}
         <button
           type="button"
           onClick={() => go(-1)}
           aria-label="Vino precedente"
-          className="absolute left-4 top-1/2 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-line bg-ivory text-green transition-opacity duration-500 hover:opacity-60 md:flex"
+          className="absolute left-8 top-1/2 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-line bg-ivory text-green transition-opacity duration-500 hover:opacity-60 md:flex lg:left-10"
         >
           <ArrowLeft className="h-5 w-5" strokeWidth={1.25} />
         </button>
@@ -141,7 +134,27 @@ function WineSlider({ items }: { items: Product[] }) {
           type="button"
           onClick={() => go(1)}
           aria-label="Vino successivo"
-          className="absolute right-4 top-1/2 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-line bg-ivory text-green transition-opacity duration-500 hover:opacity-60 md:flex"
+          className="absolute right-8 top-1/2 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-line bg-ivory text-green transition-opacity duration-500 hover:opacity-60 md:flex lg:right-10"
+        >
+          <ArrowRight className="h-5 w-5" strokeWidth={1.25} />
+        </button>
+      </div>
+
+      {/* Navigazione mobile su una riga dedicata */}
+      <div className="flex items-center justify-center gap-3 pb-6 md:hidden">
+        <button
+          type="button"
+          onClick={() => go(-1)}
+          aria-label="Vino precedente"
+          className="flex h-12 w-12 items-center justify-center rounded-full border border-line bg-ivory text-green transition-opacity duration-500 hover:opacity-60"
+        >
+          <ArrowLeft className="h-5 w-5" strokeWidth={1.25} />
+        </button>
+        <button
+          type="button"
+          onClick={() => go(1)}
+          aria-label="Vino successivo"
+          className="flex h-12 w-12 items-center justify-center rounded-full border border-line bg-ivory text-green transition-opacity duration-500 hover:opacity-60"
         >
           <ArrowRight className="h-5 w-5" strokeWidth={1.25} />
         </button>
