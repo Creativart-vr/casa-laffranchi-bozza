@@ -47,6 +47,28 @@ export function ButtonLink({
   );
 }
 
+/** Link esterno (es. PDF) con lo stesso stile dei CTA del sito */
+export function ExternalButtonLink({
+  href,
+  children,
+  variant = "green",
+  className,
+  ...rest
+}: { href: string; variant?: Variant } & ComponentProps<"a">) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={cn(base, variants[variant], className)}
+      {...rest}
+    >
+      <Corners variant={variant} />
+      {children}
+    </a>
+  );
+}
+
 export function ActionButton({
   children,
   variant = "green",
