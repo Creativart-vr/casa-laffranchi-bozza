@@ -17,7 +17,7 @@ export function ProductCardPreview({ product }: { product: PreviewProduct }) {
 
   return (
     <article className="group flex h-full flex-col">
-      <Link to="/vini/$slug" params={{ slug: product.slug }} className="block" tabIndex={-1} aria-hidden="true">
+      <Link to="/vini-preview/$slug" params={{ slug: product.slug }} className="block" tabIndex={-1} aria-hidden="true">
         <Photo
           label={`Bottiglia ${product.nome} — Casa Laffranchi`}
           ratio="3/4"
@@ -31,7 +31,7 @@ export function ProductCardPreview({ product }: { product: PreviewProduct }) {
           {product.categoria}
         </p>
         <h3 className="mt-3 text-[1.35rem]">
-          <Link to="/vini/$slug" params={{ slug: product.slug }} className="link-underline">
+          <Link to="/vini-preview/$slug" params={{ slug: product.slug }} className="link-underline">
             {product.nome}
           </Link>
         </h3>
