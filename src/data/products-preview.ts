@@ -93,6 +93,7 @@ const preview = [
     gastronomia: "Selvaggina, carni rosse, formaggi",
     descrizioneBreve: "Erbaceo, secco, morbido",
     immagine: "/images/rocolet.png",
+    disponibilita: "limitata",
   },
   {
     slug: "burtuli",
