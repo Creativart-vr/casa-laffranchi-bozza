@@ -56,6 +56,7 @@ const preview = [
     temperatura: "8 °C",
     descrizioneBreve: "Minerale, sapido, fresco",
     immagine: "/images/valens.png",
+    disponibilita: "esaurito",
   },
   {
     slug: "caelestis",
