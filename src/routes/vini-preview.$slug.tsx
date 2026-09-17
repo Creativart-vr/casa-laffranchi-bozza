@@ -32,7 +32,7 @@ export const Route = createFileRoute("/vini-preview/$slug")({
   component: ProductPreviewPage,
 });
 
-function Spec({ label, value }: { label: string; value?: string }) {
+function Spec({ label, value }: { label: string; value: string | undefined }) {
   if (!value) return null;
   return (
     <div className="grid grid-cols-[9rem_1fr] gap-6 border-b border-line py-4 max-sm:grid-cols-1 max-sm:gap-2">
