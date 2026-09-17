@@ -1,9 +1,13 @@
 /**
- * FASE 2 — dati di ANTEPRIMA (non collegati alle pagine pubbliche).
+ * FASE 2–3 — dati di ANTEPRIMA (non collegati alle pagine pubbliche).
  * Prezzi e "tre parole" dal PDF ufficiale "Prezzi e descrizione 3 parole".
  * I dati tecnici restano quelli attuali: verranno rivisti in Fase 4.
+ * FASE 3: stati di disponibilità su singole referenze (solo anteprima).
  */
 import type { Product } from "./products";
+
+export type Disponibilita = "esaurito" | "limitata";
+export type PreviewProduct = Product & { disponibilita?: Disponibilita };
 
 const preview = [
   {
@@ -52,6 +56,7 @@ const preview = [
     temperatura: "8 °C",
     descrizioneBreve: "Minerale, sapido, fresco",
     immagine: "/images/valens.png",
+    disponibilita: "esaurito",
   },
   {
     slug: "caelestis",
@@ -88,6 +93,7 @@ const preview = [
     gastronomia: "Selvaggina, carni rosse, formaggi",
     descrizioneBreve: "Erbaceo, secco, morbido",
     immagine: "/images/rocolet.png",
+    disponibilita: "limitata",
   },
   {
     slug: "burtuli",
@@ -122,6 +128,7 @@ const preview = [
     temperatura: "7–8 °C",
     descrizioneBreve: "Secco, fruttato, perlage fine",
     immagine: "/images/andreas-magnum.png",
+    disponibilita: "esaurito",
   },
   {
     slug: "petros-magnum",
@@ -214,6 +221,6 @@ const preview = [
   },
 ];
 
-export const previewProducts = preview as unknown as Product[];
+export const previewProducts = preview as unknown as PreviewProduct[];
 
 export const previewFormati = ["Tutti", "375 ml", "500 ml", "75 cl", "1,5 L"] as const;

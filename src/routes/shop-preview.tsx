@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { Reveal } from "@/components/Reveal";
-import { ProductCard } from "@/components/ProductCard";
+import { ProductCardPreview } from "@/components/ProductCardPreview";
 import { categories, categoryLabels } from "@/data/products";
 import { previewFormati, previewProducts } from "@/data/products-preview";
 import { trustPoints } from "@/data/site";
@@ -142,7 +142,7 @@ function ShopPreviewPage() {
             <div className="mt-12 grid gap-x-10 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
               {list.map((p, i) => (
                 <Reveal key={p.slug} delay={(i % 3) * 80}>
-                  <ProductCard product={p} />
+                  <ProductCardPreview product={p} />
                 </Reveal>
               ))}
             </div>
