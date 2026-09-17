@@ -221,6 +221,6 @@ const preview = [
   },
 ];
 
-export const previewProducts = preview as unknown as Product[];
+export const previewProducts = preview as unknown as PreviewProduct[];
 
 export const previewFormati = ["Tutti", "375 ml", "500 ml", "75 cl", "1,5 L"] as const;
