@@ -12,4 +12,4 @@
 - [x] Mostrare l’anteprima separata della testata fotografica Shop e attendere approvazione
 - [x] Mostrare l’anteprima separata della nuova hero video homepage e attendere approvazione
 - [x] Fase 4 approvata e applicata live: schede tecniche, disponibilità, PDF ufficiali, dati centralizzati
-- [ ] Anteprima `/vini`: rimuovere “Scheda tecnica” dallo slider e separare le frecce dai contenuti su desktop, tablet e mobile
+- [x] Anteprima `/vini`: rimuovere “Scheda tecnica”; frecce desktop centrate verticalmente fuori dal testo senza accentrare il contenuto; mobile su riga compatta dedicata — attesa approvazione definitiva
