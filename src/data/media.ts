@@ -30,18 +30,5 @@ export const galleriaVigna = [
   { src: "/images/gallery-cantina.jpg", label: "La cantina storica", didascalia: "L'affinamento sotto la volta" },
 ] as const;
 
-/** Fotografie prodotto (bottiglie), per slug. */
-export const bottleImages: Record<string, string> = {
-  valens: "/images/valens.png",
-  caelestis: "/images/caelestis.png",
-  andreas: "/images/andreas.png",
-  burtuli: "/images/burtuli.jpg",
-  rocolet: "/images/rocolet.png",
-  "san-bartolomeo": "/images/san-bartolomeo.png",
-  "burtuli-magnum": "/images/burtuli-magnum.jpg",
-  "andreas-magnum": "/images/andreas-magnum.png",
-  acquavite: "/images/acquavite.png",
-};
-
 /** Logo ufficiale (header, footer, favicon). */
 export const logoUfficiale = "/images/logo-casa-laffranchi-ufficiale.png";
