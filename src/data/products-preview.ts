@@ -128,6 +128,7 @@ const preview = [
     temperatura: "7–8 °C",
     descrizioneBreve: "Secco, fruttato, perlage fine",
     immagine: "/images/andreas-magnum.png",
+    disponibilita: "esaurito",
   },
   {
     slug: "petros-magnum",
