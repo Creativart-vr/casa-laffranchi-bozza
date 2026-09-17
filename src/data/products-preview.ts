@@ -1,9 +1,13 @@
 /**
- * FASE 2 — dati di ANTEPRIMA (non collegati alle pagine pubbliche).
+ * FASE 2–3 — dati di ANTEPRIMA (non collegati alle pagine pubbliche).
  * Prezzi e "tre parole" dal PDF ufficiale "Prezzi e descrizione 3 parole".
  * I dati tecnici restano quelli attuali: verranno rivisti in Fase 4.
+ * FASE 3: stati di disponibilità su singole referenze (solo anteprima).
  */
 import type { Product } from "./products";
+
+export type Disponibilita = "esaurito" | "limitata";
+export type PreviewProduct = Product & { disponibilita?: Disponibilita };
 
 const preview = [
   {
