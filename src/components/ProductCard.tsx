@@ -32,6 +32,9 @@ export function ProductCard({ product, showAdd = true }: { product: Product; sho
         <p className="mt-4 font-display text-base tracking-[0.16em] text-green">
           {formatPrice(product.prezzo)} <span className="text-muted-foreground">· {product.formatoFiltro}</span>
         </p>
+        <p className="mt-1 font-display text-[0.55rem] uppercase tracking-[0.3em] text-muted-foreground">
+          IVA inclusa
+        </p>
 
         {(esaurito || limitata) && (
           <p

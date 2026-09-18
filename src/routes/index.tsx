@@ -180,9 +180,7 @@ function Home() {
           <Reveal>
             <p className="eyebrow text-white/70">Vigna &amp; Cantina</p>
             <h2 className="mt-5 text-[2.2rem] text-white sm:text-[3rem]">
-              Il tempo è
-              <br />
-              il nostro ingrediente segreto
+              Il nostro metodo
             </h2>
             <p className="mt-8 max-w-xl text-lg leading-relaxed text-white/75">
               Barrique di rovere per i rossi, inox per il rosato, metodo classico per gli spumanti.
