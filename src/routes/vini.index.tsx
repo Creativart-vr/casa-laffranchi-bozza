@@ -47,8 +47,13 @@ function WineRow({ product }: { product: Product }) {
           {product.tipologia}, {product.formato}
         </span>
       </span>
-      <span className="shrink-0 font-serif text-[0.98rem] italic text-green">
-        {euro(product.prezzo)}
+      <span className="shrink-0 text-right">
+        <span className="block font-serif text-[0.98rem] italic text-green">
+          {euro(product.prezzo)}
+        </span>
+        <span className="block font-display text-[0.52rem] uppercase tracking-[0.28em] text-muted-foreground">
+          IVA inclusa
+        </span>
       </span>
     </LinkAny>
   );
@@ -107,7 +112,10 @@ function WineSlider({ items }: { items: Product[] }) {
             >
               Scopri di più
             </LinkAny>
-            <span className="font-serif text-[1.05rem] italic text-green">{euro(p.prezzo)}</span>
+            <span className="flex flex-col items-end">
+              <span className="font-serif text-[1.05rem] italic text-green">{euro(p.prezzo)}</span>
+              <span className="font-display text-[0.52rem] uppercase tracking-[0.28em] text-muted-foreground">IVA inclusa</span>
+            </span>
           </div>
         </div>
 

@@ -87,6 +87,9 @@ function VinoPage() {
               <p className="mt-2 font-display text-[0.65rem] uppercase tracking-[0.3em] text-muted-foreground">
                 Formato {product.formato}
               </p>
+              <p className="mt-1 font-display text-[0.62rem] uppercase tracking-[0.3em] text-muted-foreground">
+                IVA inclusa
+              </p>
 
               {(esaurito || limitata) && (
                 <p
