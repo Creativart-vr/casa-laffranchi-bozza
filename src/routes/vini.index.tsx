@@ -234,10 +234,9 @@ function ViniPage() {
                 </p>
               </div>
               <p className="mt-8 max-w-md leading-relaxed text-muted-foreground">
-                Ogni etichetta nasce dalle stesse vigne di famiglia, vendemmiate a mano e vinificate
-                in cantina con tempi lunghi. Le quantità sono quelle che la collina concede: poche
-                bottiglie, curate una per una. La carta si legge come un percorso: si comincia dai
-                bianchi e dalle bollicine, si prosegue con i rossi e si chiude con il passito.
+                Ogni etichetta nasce dalle stesse vigne di famiglia, le cui uve vengono raccolte al
+                momento giusto e vinificate in cantina con tempi lunghi. Produciamo in quantità
+                contenute, dedicando cura a ogni fase della lavorazione.
               </p>
               <div className="mt-12 overflow-hidden">
                 <img
