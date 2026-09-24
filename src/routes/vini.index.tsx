@@ -210,9 +210,6 @@ function ViniPage() {
             <h1 className="mx-auto mt-5 max-w-4xl text-[2.4rem] leading-[1.02] text-white sm:text-[3.4rem] lg:text-[4.4rem]">
               I nostri vini
             </h1>
-            <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-white">
-              Ogni etichetta nasce dalle stesse vigne di famiglia, le cui uve vengono raccolte al momento giusto e vinificate in cantina con tempi lunghi. Produciamo in quantità contenute, dedicando cura a ogni fase della lavorazione.
-            </p>
           </Reveal>
         </div>
       </section>

@@ -16,7 +16,7 @@ export function Footer() {
               className="h-[140px] w-auto object-contain object-left"
             />
             <p className="mt-4 max-w-sm font-serif text-xl italic leading-relaxed text-muted-foreground">
-              {site.payoff}. Una famiglia, una collina, poche bottiglie fatte bene.
+              {site.payoff}.
             </p>
             <div className="mt-8 flex items-center gap-4">
               <a
