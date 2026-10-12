@@ -180,11 +180,20 @@ function Home() {
           <Reveal>
             <p className="eyebrow text-white/70">Vigna &amp; Cantina</p>
             <h2 className="mt-5 text-[2.2rem] text-white sm:text-[3rem]">
-              Il nostro metodo
+              Una famiglia, una collina, una passione che diventa vino
             </h2>
             <p className="mt-8 max-w-xl text-lg leading-relaxed text-white/75">
-              Barrique di rovere per i rossi, inox per il rosato, metodo classico per gli spumanti.
-              Aspettiamo che ogni vino trovi la propria voce, la propria identità.
+              L’azienda Agricola Contrini Pasquina nasce a Castenedolo, tra i territori del bresciano e del
+              Lago di Garda. Una realtà famigliare in cui la passione per il vino si tramanda attraverso il
+              lavoro quotidiano, la cura della vigna e l’attenzione dedicata a ogni fase della produzione.
+            </p>
+            <p className="mt-5 max-w-xl text-lg leading-relaxed text-white/75">
+              Coltiviamo le nostre vigne sulle colline di Castenedolo, seguendo i ritmi della natura e
+              accompagnando ogni vendemmia con esperienza e dedizione.
+            </p>
+            <p className="mt-5 max-w-xl text-lg leading-relaxed text-white/75">
+              Ogni vino racconta il nostro modo di lavorare: un legame profondo con la terra, il valore delle
+              tradizioni e il desiderio di esprimere, in ogni bottiglia, il carattere del nostro territorio.
             </p>
             <div className="mt-10">
               <ButtonLink to="/vigna-cantina" variant="onDark">

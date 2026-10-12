@@ -114,12 +114,9 @@ function CasaPage() {
           <Reveal delay={100}>
             <SectionTitle align="left" title={<>Dalla terra<br />alla bottiglia</>} subtitle="In vigna e in cantina" />
             <p className="mt-8 text-lg leading-relaxed text-muted-foreground">
-              Si raccoglie grappolo per grappolo, a mano, con la stessa attenzione di sempre. Per i rossi si
-              aspetta oltre metà ottobre: la pazienza è il primo ingrediente.
-            </p>
-            <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-              La produzione resta volutamente piccola: ogni bottiglia passa dalle nostre mani, dal filare
-              alla cantina.
+              Ogni filare è il risultato di anni di lavorazione in vigna e di un’attenzione costante alle
+              esigenze della pianta. Le uve arrivano tutte dai nostri vigneti su questa collina, e l’intero
+              processo si svolge a pochi passi di distanza per mantenere la qualità del frutto.
             </p>
             <div className="mt-10">
               <ButtonLink to="/vigna-cantina">Vigna &amp; Cantina</ButtonLink>
